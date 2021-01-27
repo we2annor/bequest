@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+input {
+    border: 1px solid $color-background-light-grey;
+    background-color: $color-background-light-grey;
+    height: 1rem;
+    padding: 2.4rem;
+    font-size: 1.8rem;
+}
+
+.btn {
+    border: none;
+    padding: $btn-padding;
+    border-radius: .5rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+::placeholder {
+    font-size: 1.5rem;
+    color: $color-background-medium-grey;
+}

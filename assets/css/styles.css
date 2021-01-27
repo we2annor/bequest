@@ -1,0 +1,247 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+input {
+  border: 1px solid #eeeeee;
+  background-color: #eeeeee;
+  height: 1rem;
+  padding: 2.4rem;
+  font-size: 1.8rem; }
+
+.btn {
+  border: none;
+  padding: 1rem;
+  border-radius: .5rem;
+  font-size: 2rem;
+  cursor: pointer; }
+
+::placeholder {
+  font-size: 1.5rem;
+  color: #5c5b5b; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #ffffff;
+  text-align: center; }
+
+h1 {
+  font-size: 5rem;
+  color: #222222; }
+
+h2 {
+  font-size: 3.4rem;
+  color: #5c5b5b;
+  text-align: left; }
+
+.u-margin-medium {
+  margin: 2rem 0; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc(100% - 6rem)/2; }
+  .row .col-1-of-3 {
+    width: calc(100% - (6rem * 2))/3; }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - (6rem * 2)) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc(100% - 3 * 6rem)/4; }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
+
+.address-form {
+  width: 70vw;
+  margin: 0 auto; }
+
+.form {
+  box-shadow: 0 0.2rem 0.8rem rgba(92, 91, 91, 0.4);
+  width: 70vw;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left; }
+  .form .contact {
+    color: #222222;
+    width: 100%;
+    margin-bottom: 3rem; }
+    .form .contact__full-name > *, .form .contact__address-lines > *, .form .contact__area > *, .form .contact__country > * {
+      display: inline-block;
+      width: 50%; }
+      .form .contact__full-name > * > *, .form .contact__address-lines > * > *, .form .contact__area > * > *, .form .contact__country > * > * {
+        display: block; }
+      .form .contact__full-name > * label, .form .contact__address-lines > * label, .form .contact__area > * label, .form .contact__country > * label {
+        font-size: 1.6rem;
+        padding: .4rem 0; }
+      .form .contact__full-name > * input, .form .contact__address-lines > * input, .form .contact__area > * input, .form .contact__country > * input {
+        width: 95%;
+        margin-bottom: 0; }
+    .form .contact__full-name .last-name label, .form .contact__full-name .post-town label, .form .contact__address-lines .last-name label, .form .contact__address-lines .post-town label, .form .contact__area .last-name label, .form .contact__area .post-town label, .form .contact__country .last-name label, .form .contact__country .post-town label {
+      margin-left: 5%; }
+    .form .contact__last-name {
+      margin-left: 5%; }
+    .form .contact__address-lines > :last-child *,
+    .form .contact__area > :last-child *,
+    .form .contact__country > :last-child * {
+      margin-left: 5%; }
+    .form .contact__country > :first-child input,
+    .form .contact__area > :first-child input {
+      margin-left: 0;
+      width: 95%;
+      margin-bottom: 0; }
+  .form__controls {
+    margin: 2rem 0; }
+    .form__controls--btn {
+      background-color: #e4f3f7;
+      color: #009bc1;
+      margin-top: 4rem; }
+    .form__controls--btn:last-child {
+      margin-left: 2rem;
+      background-color: #eeeeee;
+      color: #5c5b5b; }
+  .form .input-errors {
+    position: relative;
+    top: -1rem;
+    display: inline-block;
+    width: 100%; }
+
+.field-error {
+  list-style: square; }
+  .field-error__list {
+    display: block;
+    text-align: left;
+    padding: .6rem;
+    font-size: 1.4rem; }
+
+.find-address {
+  width: 70vw;
+  margin: 0 auto; }
+  .find-address__form {
+    position: relative;
+    margin-bottom: 2rem; }
+    .find-address__form--input-field {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(min-content, 1fr);
+      grid-gap: 3rem;
+      align-items: center;
+      justify-content: center; }
+      .find-address__form--input-field label {
+        font-size: 1.6rem;
+        color: #222222; }
+      .find-address__form--input-field-btn {
+        background-color: #e4f3f7;
+        color: #009bc1;
+        box-shadow: none; }
+
+.suggestions {
+  position: absolute;
+  top: 5rem;
+  border: 1px solid #ececec;
+  width: 100%;
+  padding: 2rem 0;
+  background-color: #ffffff; }
+
+.address-select {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  color: #5c5b5b;
+  cursor: pointer;
+  text-align: left; }
+  .address-select:not(:last-child) {
+    border-top: 1px solid #eeeeee; }
+  .address-select:last-child {
+    border-bottom: 1px solid #eeeeee;
+    border-top: 1px solid #eeeeee; }
+  .address-select:hover {
+    background-color: #009bc1;
+    color: #ffffff;
+    border: none; }
+
+.container {
+  width: 100vw; }
+  .container h1 {
+    margin-bottom: 4rem;
+    color: #009bc1; }
+
+.error {
+  color: orangered; }
+
+.addresses {
+  width: 70vw;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  text-align: left;
+  color: #222222; }
+  .addresses__search-box {
+    margin-bottom: 2rem; }
+    .addresses__search-box input {
+      width: 100%; }
+  .addresses__list {
+    padding: 1rem 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 0.2rem 0.8rem rgba(92, 91, 91, 0.4); }
+  .addresses h3 {
+    padding: 2rem;
+    border-bottom: 1px solid #eeeeee; }
+  .addresses a {
+    text-decoration: none;
+    color: #222222; }
+
+.contact {
+  text-align: left;
+  width: 70vw;
+  margin: 0 auto; }
+  .contact h2 {
+    margin: 2rem 0 5rem 0; }
+  .contact__list {
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    color: #222222; }
+    .contact__list .list-item {
+      padding: .2rem 0; }
+      .contact__list .list-item span {
+        display: inline-block;
+        width: 15rem;
+        font-weight: 800;
+        color: #121212; }
+
+.header {
+  height: 10vh;
+  box-shadow: 0 0.2rem 1rem rgba(34, 34, 34, 0.2);
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 5rem; }
+  .header .container {
+    width: 70vw;
+    margin: 0 auto; }
+  .header a {
+    display: inline-block;
+    padding: .6rem 2rem;
+    margin: 4rem 1rem 1rem 0;
+    text-decoration: none;
+    color: #222222; }

@@ -1,0 +1,32 @@
+
+.addresses {
+    width: 70vw;
+    margin: 0 auto;
+    font-size: 1.6rem;
+    text-align: left;
+    color: $color-primary-dark-grey;
+    
+
+    &__search-box {
+        margin-bottom: 2rem;
+        input {
+            width: 100%;
+        }
+    }
+
+    &__list {
+        padding: 1rem 2rem;
+        margin: 2rem 0;
+        box-shadow: 0 .2rem .8rem rgba($color-background-medium-grey, .4);
+    }
+
+    h3 {
+        padding: 2rem;
+        border-bottom: 1px solid $color-background-light-grey;
+    }
+
+    a {
+        text-decoration: none;
+        color: $color-primary-dark-grey;
+    }
+}

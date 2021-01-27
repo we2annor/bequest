@@ -1,0 +1,26 @@
+.contact {
+    text-align: left;
+    width: 70vw;
+    margin: 0 auto;
+
+    h2 {
+        margin: 2rem 0 5rem 0;
+    }
+
+    &__list {
+        padding: 1rem 0;
+        font-size: 1.6rem;
+        color: $color-primary-dark-grey;
+
+        .list-item {
+            padding: .2rem 0;
+
+            span {
+                display: inline-block;
+                width: 15rem;
+                font-weight: 800;
+                color: #121212;
+            }
+        }
+    }
+}

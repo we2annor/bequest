@@ -1,0 +1,36 @@
+.suggestions {
+    position: absolute;
+    top: 5rem;
+    border: 1px solid #ececec;
+    width: 100%;
+    padding: 2rem 0;
+    background-color: $color-primary-white;
+}
+
+.address-select {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    color: $color-background-medium-grey;
+    cursor: pointer;
+    text-align: left;
+
+    &:not(:last-child){
+        border-top: 1px solid $color-background-light-grey;
+    }
+
+    &:last-child {
+        border-bottom: 1px solid $color-background-light-grey;
+        border-top: 1px solid $color-background-light-grey;
+        ;
+    }
+
+    &:hover {
+        background-color: $color-background-teal;
+        color: $color-primary-white;
+        border: none;
+    }
+}
+
+.address-select:last-child {
+}

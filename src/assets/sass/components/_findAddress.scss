@@ -1,0 +1,29 @@
+.find-address {
+    width: 70vw;
+    margin: 0 auto;
+
+    &__form {
+        position: relative;
+        margin-bottom: 2rem;
+
+        &--input-field {
+            width: 100%;
+            display: grid;
+            grid-template-columns: minmax(min-content, 1fr);
+            grid-gap: 3rem;
+            align-items: center;
+            justify-content: center;
+
+            label {
+                font-size: 1.6rem;
+                color: $color-primary-dark-grey;
+            }
+
+            &-btn {
+                background-color: $color-background-light-teal;
+                color: $color-background-teal;
+                box-shadow: none;
+            }
+        }
+    }
+}

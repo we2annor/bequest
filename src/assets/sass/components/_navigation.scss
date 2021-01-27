@@ -1,0 +1,20 @@
+.header {
+    height: 10vh;
+    box-shadow: 0 .2rem 1rem rgba($color-primary-dark-grey, 0.2);
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 5rem;
+
+    .container {
+        width: 70vw;
+        margin: 0 auto;
+    }
+
+    a {
+        display: inline-block;
+        padding: .6rem 2rem;
+        margin: 4rem 1rem 1rem 0;
+        text-decoration: none;
+        color: $color-primary-dark-grey;
+    }
+}
