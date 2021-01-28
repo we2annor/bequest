@@ -37,7 +37,7 @@ const ShowContact:React.FC<IProps> =({contact, fetchContact, match})=>{
                 <div className="list-item"><span>Line 2:</span>{contact.streetName}</div>
                 <div className="list-item"><span>County:</span>{contact.locality}</div>
                 <div className="list-item"><span>City :</span>{contact.postTown}</div>
-                <div className="list-item"><span>Country:</span>{contact.county}</div>
+                <div className="list-item"><span>Country:</span>{contact.country}</div>
                 <div className="list-item"><span>Post code:</span>{contact.postCode}</div>
             </div>
         </div>

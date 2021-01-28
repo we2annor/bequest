@@ -15,7 +15,6 @@ declare global {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(reduxThunk)))
-store.subscribe(()=>console.log('store', store.getState()))
 
 const root = document.querySelector("#root");
 ReactDOM.render(

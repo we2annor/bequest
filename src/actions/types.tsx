@@ -6,15 +6,16 @@ export const EDIT_CONTACT = 'EDIT_CONTACT';
 
 export interface AddressesState {
     addressBook: Address;
-    //id?:ID
 }
 
 export interface Address {
+    firstName : string;
+    lastName: string;
     houseNo: string;
     streetName: string;
     locality: string;
     postTown: string;
-    county: string;
+    country: string;
     postCode: string;
     id: number
 }
@@ -26,11 +27,13 @@ interface ID {
 export type AddressKey = keyof Address;
 
 export const InitialAddressValues = {
+    firstName: '',
+    lastName: '',
     houseNo:'',
     streetName:'',
     locality: '',
     postTown : '',
-    county: '',
+    country: '',
     postCode: '',
     id: 0
 }

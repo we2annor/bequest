@@ -1,13 +1,17 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
+import Autosuggest from 'react-autosuggest';
 import { connect} from 'react-redux';
-import { addContact} from '../../actions'
+import { addContact} from '../../actions';
+import {countryNames} from '../../api/addressBook';
 import { Address, AddressFormProps } from '../../actions/types';
 import Error from '../Error';
 
 interface IValidate {
+  firstName: string;
+  lastName: string;
   houseNo: string;
   postTown : string;
-  county : string;
+  country : string;
   postCode : string;
 }
 
@@ -18,7 +22,9 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
   const [streetName, setStreetName] = useState("");
   const [locality, setLocality] = useState("");
   const [postTown, setPostTown] = useState("");
-  const [county, setCounty] = useState("");
+  const [country, setCountry] = useState("");
+  const [countrySuggestions, setCountrySuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
   const [postCode, setPostCode] = useState("");
   const [validationError, setValidationError] = useState({});
   const [passedValidation, setPassedValidation]=useState(false);
@@ -27,18 +33,34 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
     const getSelectedAddress = () => {
       if (selectedAddress) {
         const address = Object.values(selectedAddress);
-        console.log(address, 'address', selectedAddress, 'selectedAddress')
-        setHouseNo(address[0].toString());
-        setStreetName(address[1].toString());
-        setLocality(address[2].toString());
-        setPostTown(address[3].toString());
-        setCounty(address[4].toString());
+        setFirstName(address[0].toString());
+        setLastName(address[1].toString());
+        setHouseNo(address[2].toString());
+        setStreetName(address[3].toString());
+        setLocality(address[4].toString());
+        setPostTown(address[5].toString());
+        setCountry(address[6].toString());
         setPostCode(postcode);
       }
     };
 
     getSelectedAddress();
   }, [selectedAddress, postcode]);
+
+  useEffect(()=>{
+    const fetchCountrySuggestions = async ()=>{
+      if(country){
+        try {
+          const response = await countryNames.get(`/name/${country}`)
+          setCountrySuggestions(response.data)
+        } catch (error) {
+          console.log('country suggestion Error', error)
+        }
+      }
+    };
+ 
+    fetchCountrySuggestions();
+  },[country]);
 
   const handleOnChange =(e:ChangeEvent<HTMLInputElement>)=>{
     const {name, value} = e.target;
@@ -62,7 +84,8 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
         setPostTown(value);
         return
       case 'country':
-        setCounty(value);
+        console.log('val')
+        setCountry(value);
         return
       case 'postCode':
         setPostCode(value)
@@ -73,18 +96,20 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(validateAddress()){
-      const formValues :Address = {houseNo,streetName,locality,postTown,county,postCode,id:0};
+      const formValues : Address = {firstName, lastName, houseNo,streetName,locality,postTown,country,postCode,id:0};
       addContact(formValues);
       clearAddressForm()
     } 
   };
 
   const clearAddressForm=()=>{
+    setFirstName('');
+    setLastName('');
     setHouseNo('');
     setStreetName('');
     setLocality('');
     setPostTown('');
-    setCounty('')
+    setCountry('')
     setPostCode('');
     setPassedValidation(false);
   }
@@ -97,16 +122,6 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
     return true;
     } 
 
-    //return { time: k, messages: counts[k] };
-
-  // const test = ()=>{
-  //   for(const key in validationError){
-  //     //return {[key: key]: key] :Error, validationError[key]}
-  //   }
-  // }
-
-  //console.log(test(), validationError[houseNo]);
-
   const validateAddress = () : boolean =>{
     const errors : IValidate = Object();
     if(!houseNo){
@@ -115,8 +130,8 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
     if(!postTown){
       errors.postTown = "Town field is required";
     }
-    if(!county){
-      errors.county = "Country field is required";
+    if(!country){
+      errors.country = "Country field is required";
     }
     if(!postCode){
       errors.postCode = "Post code field is required";
@@ -141,6 +156,41 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
       return valErrors;
   }
 
+  const getSuggestions = (value :any)=>{
+    console.log('country', country);
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+
+    return inputLength === 0 ? [] : countrySuggestions.filter((suggestion : any) => 
+      suggestion.name.toLowerCase().slice(0, inputLength) === inputValue)
+  }
+
+  const onSuggestionsFetchRequested = ({value}:any) => {
+    setSuggestions(getSuggestions(value))
+  }
+
+  const onSuggestionsClearedRequested = () => {
+    setSuggestions([]);
+  }
+
+  const getSuggestionValue = (suggestion : any) => suggestion.name;
+  const renderSuggestion =(suggestion: any)=>(
+    <div className="countryAutoSuggestion">{suggestion.name}</div>
+  )
+
+  const onChange = (_event:any, {newValue}:any)=>{
+    setCountry(newValue)
+  }
+
+  const inputProps = {
+    placeholder: 'Country',
+    autoComplete: 'abcd',
+    name: "country",
+    id: "country" ,
+    value: country,
+    onChange : onChange
+  }
+
   return (
     <section className="address-form">
       {validationError && <ul className="field-error">{showError()}</ul>}
@@ -152,7 +202,9 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
           <input
             className='contact__first-name'
             name="firstName"
+            id="firstName"
             value={firstName}
+            autoComplete="abcd"
             type='text'
             placeholder='first name'
             onChange={(e) => handleOnChange(e)}
@@ -163,8 +215,10 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
           <input
             className='contact__last-name'
             name="lastName"
+            id="lastName"
             value={lastName}
             type='text'
+            autoComplete="abcd"
             placeholder='last name'
             onChange={(e) => handleOnChange(e)}
           />
@@ -177,7 +231,9 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
           <input
             className='address address__houseNo'
             name="houseNo"
+            id="houseNo"
             value={houseNo}
+            autoComplete="abcd"
             type='text'
             placeholder='House / street name'
             onChange={(e) => handleOnChange(e)}
@@ -188,6 +244,8 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
             <input
               className='contact contact__streetName'
               name="streetName"
+              id="streetName"
+              autoComplete="abcd"
               value={streetName}
               type='text'
               placeholder='Street name'
@@ -202,7 +260,9 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
           <input
             className='contact contact__locality'
             name="locality"
+            id="locality"
             type='text'
+            autoComplete="abcd"
             value={locality}
             placeholder='Locality'
             onChange={(e) => handleOnChange(e)}
@@ -213,8 +273,10 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
           <input
             className='contact contact__post-town'
             name="postTown"
+            id="postTown"
             type='text'
             value={postTown}
+            autoComplete="abcd"
             placeholder='Town'
             onChange={(e) => handleOnChange(e)}
           />
@@ -222,23 +284,26 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
       </div>
 
       <div className="contact contact__country">
-        <div>
+        <div className="autoSuggest-container">
           <label htmlFor="country" aria-label="country">Country</label>
-          <input
-            className='contact contact__country'
-            name="country"
-            type='text'
-            value={county}
-            placeholder='County'
-            onChange={(e) => handleOnChange(e)}
-          />
+          <Autosuggest 
+          suggestions={ suggestions }
+          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={onSuggestionsClearedRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps}
+        />
         </div>
+
         <div>
           <label htmlFor="postCode" aria-label="postCode">Post code</label>
           <input
             className='contact contact__post-code'
             name="postCode"
+            id="postCode"
             type='text'
+            autoComplete="abcd"
             value={postCode}
             placeholder='post code eg: Ha4 5gh'
             onChange={(e) => handleOnChange(e)}

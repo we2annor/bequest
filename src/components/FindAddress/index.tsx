@@ -11,7 +11,6 @@ interface ISuggestionResult {
   url: string;
 }
 
-
 const FindAddress : React.FC = () => {
   const [postCode, setPostCode] = useState<string>("");
   const [selectedAddress, setSelectedAddress] = useState<Address>(InitialAddressValues);
@@ -19,7 +18,6 @@ const FindAddress : React.FC = () => {
   const [findError, setFindError]= useState('');
   const [fetchError, setFetchError] = useState('');
   const API_KEY = "cCzwYuxt30OW7mkyB6DZeQ29886";
-  //const ERROR = 'Find field is empty (post code)';
 
   const getAddressId = async (id: string) => {
     const response = await findAddress.get(`get/${id}?api-key=${API_KEY}`)

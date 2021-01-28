@@ -10,7 +10,6 @@ export const addContact = (formValues: Address) => async (dispatch: Dispatch) =>
 };
 
 export const fetchContact = (id: number) => async (dispatch: Dispatch) => {
-  console.log('fetch contact', id);
   const response = await addressBook.get(`/addressBook/${id}`);
   dispatch({
     type: FETCH_CONTACT,
