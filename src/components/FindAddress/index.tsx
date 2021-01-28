@@ -59,7 +59,7 @@ const FindAddress : React.FC = () => {
           />
         </div>
 
-        {postCode && (
+        {postCode.length > 2 && (
           <AddressSuggestions
             suggestionResults={addressSuggestions}
             getAddressId={getAddressId}
