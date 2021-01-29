@@ -48,87 +48,76 @@ h2 {
 .u-margin-medium {
   margin: 2rem 0; }
 
-.address-form {
+.contact-form {
   width: 70vw;
   margin: 0 auto; }
-
-.form {
-  box-shadow: 0 0.2rem 0.8rem rgba(92, 91, 91, 0.4);
-  width: 70vw;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: left; }
-  .form .contact {
+  .contact-form .contact {
+    box-shadow: 0 0.2rem 0.8rem rgba(92, 91, 91, 0.4);
+    width: 70vw;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: left;
     color: #222222;
     width: 100%;
     margin-bottom: 3rem; }
-    .form .contact__full-name, .form .contact__address-lines, .form .contact__area, .form .contact__country {
-      position: relative; }
-      .form .contact__full-name > *, .form .contact__address-lines > *, .form .contact__area > *, .form .contact__country > * {
-        display: inline-block;
-        width: 50%; }
-        .form .contact__full-name > * > *, .form .contact__address-lines > * > *, .form .contact__area > * > *, .form .contact__country > * > * {
-          display: block; }
-        .form .contact__full-name > * label, .form .contact__address-lines > * label, .form .contact__area > * label, .form .contact__country > * label {
-          font-size: 1.6rem;
-          padding: .4rem 0; }
-        .form .contact__full-name > * input, .form .contact__address-lines > * input, .form .contact__area > * input, .form .contact__country > * input {
-          width: 95%;
-          margin-bottom: 0; }
-      .form .contact__full-name .last-name label, .form .contact__full-name .post-town label, .form .contact__address-lines .last-name label, .form .contact__address-lines .post-town label, .form .contact__area .last-name label, .form .contact__area .post-town label, .form .contact__country .last-name label, .form .contact__country .post-town label {
-        margin-left: 5%; }
-    .form .contact__last-name {
-      margin-left: 5%; }
-    .form .contact__address-lines > :last-child *,
-    .form .contact__area > :last-child *,
-    .form .contact__country > :last-child * {
-      margin-left: 5%; }
-    .form .contact__country > :first-child input,
-    .form .contact__area > :first-child input {
-      margin-left: 0;
-      width: 95%;
-      margin-bottom: 0; }
-  .form__controls {
-    margin: 2rem 0; }
-    .form__controls--btn {
+    .contact-form .contact__field-errors {
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1.6rem; }
+      .contact-form .contact__field-errors .field-error__list {
+        padding: 0;
+        list-style-type: square;
+        color: red; }
+    .contact-form .contact .input-field {
+      width: 48%;
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 1.6rem; }
+      .contact-form .contact .input-field label {
+        padding: 1rem 0; }
+      .contact-form .contact .input-field input {
+        width: 100%; }
+    .contact-form .contact__full-name :last-child, .contact-form .contact__address-lines :last-child, .contact-form .contact__area :last-child, .contact-form .contact__country :last-child {
+      float: right; }
+    .contact-form .contact__controls--submit-btn {
+      margin-right: 4rem;
       background-color: #e4f3f7;
-      color: #009bc1;
-      margin-top: 4rem; }
-    .form__controls--btn:last-child {
-      margin-left: 2rem;
+      color: #009bc1; }
+    .contact-form .contact__controls--clear-btn {
       background-color: #eeeeee;
       color: #5c5b5b; }
-  .form .input-errors {
-    position: relative;
-    top: -1rem;
-    display: inline-block;
-    width: 100%; }
-
-.field-error {
-  list-style: square; }
-  .field-error__list {
-    display: block;
-    text-align: left;
-    padding: .6rem;
-    font-size: 1.4rem; }
-
-.autoSuggest-container {
-  position: relative; }
-
-.countryAutoSuggestion {
-  display: inline-block;
-  width: 100%;
-  font-size: 1.6rem;
-  padding: .4rem 0;
-  background-color: #fff; }
-
-.react-autosuggest__container {
-  top: 0;
-  left: 0;
-  width: 100%; }
-
-.react-autosuggest__container--open {
-  position: absolute; }
+    .contact-form .contact__controls {
+      margin: 2rem 0; }
+      border
+.contact-form .contact__controls--btn {
+        background-color: #e4f3f7;
+        color: #009bc1;
+        margin-top: 4rem; }
+      .contact-form .contact__controls--btn:last-child {
+        margin-left: 2rem;
+        background-color: #eeeeee;
+        color: #5c5b5b; }
+    .contact-form .contact__country--autoSuggest-container {
+      display: block; }
+      .contact-form .contact__country--autoSuggest-container .react-autosuggest__container {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%; }
+        .contact-form .contact__country--autoSuggest-container .react-autosuggest__container .countryAutoSuggestion {
+          display: inline-block;
+          width: 100%;
+          left: 0;
+          font-size: 1.6rem;
+          padding: .4rem 0;
+          background-color: white;
+          position: absolute; }
+      .contact-form .contact__country--autoSuggest-container .react-autosuggest__suggestions-container--open {
+        width: 100%;
+        position: absolute; }
+      .contact-form .contact__country--autoSuggest-container .react-autosuggest__suggestions-list {
+        padding: 1rem; }
 
 .find-address {
   width: 70vw;
@@ -157,7 +146,8 @@ h2 {
   border: 1px solid #ececec;
   width: 100%;
   padding: 2rem 0;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  z-index: 10; }
 
 .address-select {
   width: 100%;
@@ -199,6 +189,10 @@ h2 {
     padding: 1rem 2rem;
     margin: 2rem 0;
     box-shadow: 0 0.2rem 0.8rem rgba(92, 91, 91, 0.4); }
+    .addresses__list span {
+      display: inline-block;
+      width: 10rem;
+      font-weight: 800; }
   .addresses h3 {
     padding: 2rem;
     border-bottom: 1px solid #eeeeee; }

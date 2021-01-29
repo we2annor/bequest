@@ -18,24 +18,21 @@ const Addresses: React.FC<AddressesProps> = ({fetchContacts, addressBook}) => {
   }, [fetchContacts]);
 
   const renderAddresses = () => {
-    if(addressBook){
+    console.log('book', addressBook.length);
+    if(addressBook.length > 0){
       return addressBook.map((address)=> (
         <Link to={`/contact/${address.id}`} key={address.id}>
           <div className="addresses__list" >
-            <div>{address.firstName}</div>
-            <div>{address.lastName}</div>
-            <div>{address.houseNo}</div>
-            <div>{address.streetName}</div>
-            <div>{address.locality}</div>
-            <div>{address.postTown}</div>
-            <div>{address.country}</div>
-            <div>{address.postCode}</div>
+            <div><span>Full name :</span>{address.firstName} {address.lastName}</div>
+            <div><span>Address :</span>{address.houseNo},{address.streetName}, {address.locality}</div>
+            <div><span>City :</span>{address.postTown}</div>
+            <div><span>Country :</span>{address.country}</div>
+            <div><span>Post code :</span>{address.postCode}</div>
           </div>        
         </Link>
       ))
     }
-    
-    return <div>No address</div>
+    return <div>No contacts</div>
    }
   
    const getSearchTerm = (term:string) =>{

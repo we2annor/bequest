@@ -6,7 +6,7 @@ const Navigation:React.FC = () =>{
         <div className="header">
             <div className="container">
                 <Link to="/">Contacts</Link>
-                <Link to="/contact/new">Add Contact</Link>
+                <Link to="/contacts/new">Add Contact</Link>
             </div>
         </div>
     )

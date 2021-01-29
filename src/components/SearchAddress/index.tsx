@@ -17,7 +17,7 @@ const SearchAddress:React.FC<ISearchAddressProps> = ({getSearchTerm}) =>{
             <input 
             className="input input__field" 
             type="text" 
-            placeholder="Search address" 
+            placeholder="Search contact" 
             onChange={(e)=>handleOnChange(e)} 
             />
         </div>

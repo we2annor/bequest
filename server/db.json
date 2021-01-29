@@ -1,136 +1,15 @@
 {
   "addressBook": [
     {
-      "houseNo": "106",
-      "streetName": "Thirlmere Gardens",
-      "locality": "",
-      "postTown": "Wembley",
-      "county": "United Kingdom",
+      "firstName": "ernest",
+      "lastName": "annor",
+      "houseNo": "13 Gilbert Scott close",
+      "streetName": "Cranmer House",
+      "locality": "wembley",
+      "postTown": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
       "postCode": "HA9 8RF",
       "id": 1
-    },
-    {
-      "houseNo": "106",
-      "streetName": "Thirlmere Gardens",
-      "locality": "",
-      "postTown": "Wembley",
-      "county": "United Kingdom",
-      "postCode": "HA9 8RF",
-      "id": 2
-    },
-    {
-      "houseNo": "100 Thirlmere Gardens",
-      "streetName": "",
-      "locality": "",
-      "postTown": "Wembley",
-      "county": "Greater London",
-      "postCode": "ha9 8rf",
-      "id": 3
-    },
-    {
-      "houseNo": "Flat 5",
-      "streetName": "Connor Court",
-      "locality": "Alfreda Street",
-      "postTown": "London",
-      "county": "United Kingdom",
-      "postCode": "sw11 5hf",
-      "id": 4
-    },
-    {
-      "houseNo": "Mk Realisations Ltd",
-      "streetName": "1 Fetter Lane",
-      "locality": "",
-      "postTown": "London",
-      "county": "aad",
-      "postCode": "mk",
-      "id": 5
-    },
-    {
-      "houseNo": "14b High Street",
-      "streetName": "",
-      "locality": "",
-      "postTown": "Thornton Heath",
-      "county": "Surrey",
-      "postCode": "cr7",
-      "id": 6
-    },
-    {
-      "houseNo": "Flat 33",
-      "streetName": "Dower Court",
-      "locality": "2 Penniwell Close",
-      "postTown": "Edgware",
-      "county": "Greater London",
-      "postCode": "ha8",
-      "id": 7
-    },
-    {
-      "houseNo": "Flat 1",
-      "streetName": "Cranmer House",
-      "locality": "60 Surrey Lane",
-      "postTown": "London",
-      "county": "United Kingdom",
-      "postCode": "sw11 3ta",
-      "id": 8
-    },
-    {
-      "houseNo": "Flat 15",
-      "streetName": "Dower Court",
-      "locality": "2 Penniwell Close",
-      "postTown": "Edgware",
-      "county": "Greater London",
-      "postCode": "ha8",
-      "id": 9
-    },
-    {
-      "houseNo": "5B Corinium Close",
-      "streetName": "",
-      "locality": "",
-      "postTown": "Wembley",
-      "county": "Greater London",
-      "postCode": "ha9",
-      "id": 10
-    },
-    {
-      "houseNo": "96 Thirlmere Gardens",
-      "streetName": "",
-      "locality": "",
-      "postTown": "Wembley",
-      "county": "Greater London",
-      "postCode": "ha9 8rf",
-      "id": 11
-    },
-    {
-      "firstName": "Buju",
-      "lastName": "Banton",
-      "houseNo": "106",
-      "streetName": "75a Cherry Avenue",
-      "locality": "60 Surrey Lane",
-      "postTown": "Swanley",
-      "country": "ca",
-      "postCode": "br8",
-      "id": 12
-    },
-    {
-      "firstName": "90 Thirlmere Gardens",
-      "lastName": "",
-      "houseNo": "90 Thirlmere Gardens",
-      "streetName": "",
-      "locality": "",
-      "postTown": "Wembley",
-      "country": "Greater London",
-      "postCode": "ha9 8rf",
-      "id": 13
-    },
-    {
-      "firstName": "Akwasi",
-      "lastName": "Annor",
-      "houseNo": "13 gilbert Scott close",
-      "streetName": "surry street",
-      "locality": "wembley",
-      "postTown": "Middlesex",
-      "country": "United Kingdom of Great Britain and Northern Ireland",
-      "postCode": "ha9 8rf",
-      "id": 14
     }
   ]
 }

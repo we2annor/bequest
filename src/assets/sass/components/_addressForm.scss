@@ -1,126 +1,113 @@
-.address-form {
+.contact-form {
     width: 70vw;
     margin: 0 auto;
-}
-
-.form {
-    box-shadow: 0 .2rem .8rem rgba($color-background-medium-grey, .4);
-    width: 70vw;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: left;
 
     .contact {
+        box-shadow: 0 .2rem .8rem rgba($color-background-medium-grey, .4);
+        width: 70vw;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: left;
+
         color: $color-primary-dark-grey;
         width: 100%;
         margin-bottom: 3rem;
 
-        &__full-name, 
+        &__field-errors {
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.6rem;
+
+             .field-error__list {
+                padding: 0;
+                list-style-type: square;
+                color: red;
+            }
+        }
+
+        .input-field {
+            width: 48%;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 1.6rem;
+
+            label {
+                padding: 1rem 0;
+            }
+
+            input {
+                width: 100%;
+            }
+        }
+
+        &__full-name,
         &__address-lines,
         &__area,
         &__country {
-            position: relative;
-            & > * {
-                display: inline-block;
-                width: 50%;
+            :last-child {
+                float: right;
+            }
+        }
 
-                & > * {
-                    display: block;
-                }
+        &__controls {
+            &--submit-btn {
+                margin-right: 4rem;
+                background-color: $color-background-light-teal;
+                color: $color-background-teal;
+            }
 
-                label {
+            &--clear-btn {
+                background-color: $color-background-light-grey;
+                color: $color-background-medium-grey;
+            }
+        }
+
+        &__controls {
+            margin: 2rem 0;
+            border
+
+            &--btn {
+                background-color: $color-background-light-teal;
+                color: $color-background-teal;
+                margin-top: 4rem;
+            }
+
+            &--btn:last-child{
+                margin-left: 2rem;
+                background-color: $color-background-light-grey;
+                color: $color-background-medium-grey;
+            } 
+        }
+
+        &__country--autoSuggest-container {
+            display: block;
+
+            .react-autosuggest__container {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
+
+                .countryAutoSuggestion {
+                    display: inline-block;
+                    width: 100%;
+                    left: 0;
                     font-size: 1.6rem;
                     padding: .4rem 0;
-                }
-
-                input {
-                    width: 95%;
-                    margin-bottom: 0;
+                    background-color: rgb(255, 255, 255,);
+                    position: absolute;
                 }
             }
 
-            .last-name,.post-town {
-                label {
-                    margin-left: 5%;
-                }
+            .react-autosuggest__suggestions-container--open {
+                width: 100%;
+                position: absolute;
             }
-        }
 
-        &__last-name {
-            margin-left: 5%;
-        }
-
-        &__address-lines >:last-child,
-        &__area >:last-child,
-        &__country >:last-child {
-            * {
-                margin-left: 5%;
-            }
-        }
-
-        &__country >:first-child,
-        &__area >:first-child {
-            input {
-                margin-left: 0;
-                width: 95%;
-                margin-bottom: 0;
+            .react-autosuggest__suggestions-list {
+                padding: 1rem;
             }
         }
     }
-
-    &__controls {
-        margin: 2rem 0;
-
-        &--btn {
-            background-color: $color-background-light-teal;
-            color: $color-background-teal;
-            margin-top: 4rem;
-        }
-
-        &--btn:last-child{
-            margin-left: 2rem;
-            background-color: $color-background-light-grey;
-            color: $color-background-medium-grey;
-        } 
-    }
-
-    .input-errors {
-        position: relative;
-        top: -1rem;
-        display: inline-block;
-        width: 100%;
-    }
-}
-
-.field-error {
-    list-style:square;
-    
-    &__list {
-        display: block;
-        text-align: left;
-        padding: .6rem;
-        font-size: 1.4rem;
-    }
-}
-
-.autoSuggest-container {
-    position: relative;
-}
-
-.countryAutoSuggestion {
-    display: inline-block;
-    width: 100%;
-    font-size: 1.6rem;
-    padding: .4rem 0;
-    background-color: #fff;
-}
-
-.react-autosuggest__container {
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
-.react-autosuggest__container--open {
-    position: absolute;
 }

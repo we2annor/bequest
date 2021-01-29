@@ -4,6 +4,7 @@ import { connect} from 'react-redux';
 import { addContact} from '../../actions';
 import {countryNames} from '../../api/addressBook';
 import { Address, AddressFormProps } from '../../actions/types';
+import InputField from '../InputField';
 import Error from '../Error';
 
 interface IValidate {
@@ -31,17 +32,13 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
 
   useEffect(() => {
     const getSelectedAddress = () => {
-      if (selectedAddress) {
         const address = Object.values(selectedAddress);
-        setFirstName(address[0].toString());
-        setLastName(address[1].toString());
-        setHouseNo(address[2].toString());
-        setStreetName(address[3].toString());
-        setLocality(address[4].toString());
-        setPostTown(address[5].toString());
-        setCountry(address[6].toString());
+        setHouseNo(address[0].toString());
+        setStreetName(address[1].toString());
+        setLocality(address[2].toString());
+        setPostTown(address[3].toString());
+        setCountry(address[4].toString());
         setPostCode(postcode);
-      }
     };
 
     getSelectedAddress();
@@ -95,8 +92,18 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(validateAddress()){
-      const formValues : Address = {firstName, lastName, houseNo,streetName,locality,postTown,country,postCode,id:0};
+    if(addressValidated()){
+      const formValues : Address = {
+        firstName, 
+        lastName, 
+        houseNo, 
+        streetName, 
+        locality, 
+        postTown, 
+        country, 
+        postCode, 
+        id:0
+      };
       addContact(formValues);
       clearAddressForm()
     } 
@@ -112,6 +119,8 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
     setCountry('')
     setPostCode('');
     setPassedValidation(false);
+    setValidationError({});
+    console.log('val errors', validationError)
   }
 
  const isEmpty = (obj:Object) => {
@@ -122,7 +131,7 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
     return true;
     } 
 
-  const validateAddress = () : boolean =>{
+  const addressValidated = () : boolean =>{
     const errors : IValidate = Object();
     if(!houseNo){
       errors.houseNo = 'House number or house name is required';
@@ -157,7 +166,6 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
   }
 
   const getSuggestions = (value :any)=>{
-    console.log('country', country);
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
@@ -192,131 +200,107 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
   }
 
   return (
-    <section className="address-form">
-      {validationError && <ul className="field-error">{showError()}</ul>}
-    <h2 className="u-margin-medium">Add address manually</h2>
-    <form className='form' onSubmit={(e) => handleSubmit(e)}>
-      <div className="contact contact__full-name">
-        <div className="first-name">
-          <label htmlFor="first-name" aria-label="firstName">First Name</label>
-          <input
-            className='contact__first-name'
-            name="firstName"
-            id="firstName"
+    <section className="contact-form">
+
+      <h2 className="u-margin-medium">Add address manually</h2>
+      <form className='contact' onSubmit={(e) => handleSubmit(e)}>
+        {validationError && <ul className="contact__field-errors">{showError()}</ul>}
+
+        <div className="contact__full-name">
+          <InputField 
+            className='contact__full-name--first-name'
+            label='First Name'
+            id='firstName'
             value={firstName}
-            autoComplete="abcd"
-            type='text'
-            placeholder='first name'
-            onChange={(e) => handleOnChange(e)}
+            autoComplete={'off'}
+            placeholder="first name"
+            onChange={(e)=> handleOnChange(e)}
           />
-        </div>
-        <div className="last-name">
-          <label htmlFor="last-name" aria-label="lastName">Last Name</label>
-          <input
-            className='contact__last-name'
-            name="lastName"
-            id="lastName"
+          <InputField 
+            className='contact__full-name--last-name'
+            label='Last Name'
+            id='lastName'
             value={lastName}
-            type='text'
-            autoComplete="abcd"
-            placeholder='last name'
-            onChange={(e) => handleOnChange(e)}
+            autoComplete={'off'}
+            placeholder="last name"
+            onChange={(e)=> handleOnChange(e)}
           />
         </div>
-      </div>
-
-      <div className="contact contact__address-lines">
-        <div className="house-no">
-          <label htmlFor="houseNo" aria-label="houseNo">House / Flat Number</label>
-          <input
-            className='address address__houseNo'
-            name="houseNo"
-            id="houseNo"
+        <div className="contact__address-lines">
+          <InputField 
+            className='contact__address-lines--house-no'
+            label='House / Flat Number'
+            id='houseNo'
             value={houseNo}
-            autoComplete="abcd"
-            type='text'
-            placeholder='House / street name'
-            onChange={(e) => handleOnChange(e)}
-            />          
+            autoComplete={'off'}
+            placeholder="House / street name"
+            onChange={(e)=> handleOnChange(e)}
+          />
+          <InputField 
+            className='contact__address-lines--street-name'
+            label='Street Name'
+            id='streetName'
+            value={streetName}
+            autoComplete='off'
+            placeholder="Street name"
+            onChange={(e)=> handleOnChange(e)}
+          />
         </div>
-        <div>
-          <label htmlFor="streetName" aria-label="streetName">Street Name</label>
-            <input
-              className='contact contact__streetName'
-              name="streetName"
-              id="streetName"
-              autoComplete="abcd"
-              value={streetName}
-              type='text'
-              placeholder='Street name'
-              onChange={(e) => handleOnChange(e)}
-            />
-        </div>
-      </div>
 
-      <div className="contact contact__area">
-        <div className="locality">
-          <label htmlFor="locality" aria-label="locality">Locality</label>
-          <input
-            className='contact contact__locality'
-            name="locality"
-            id="locality"
-            type='text'
-            autoComplete="abcd"
+        <div className="contact__area">
+          <InputField 
+            className='contact__area--locality'
+            label='Locality'
+            id='locality'
             value={locality}
-            placeholder='Locality'
-            onChange={(e) => handleOnChange(e)}
+            autoComplete='off'
+            placeholder="Locality"
+            onChange={(e)=> handleOnChange(e)}
+          />
+          <InputField 
+            className='contact__area--post-town'
+            label='Town'
+            id='postTown'
+            value={houseNo}
+            autoComplete='off'
+            placeholder="Town"
+            onChange={(e)=> handleOnChange(e)}
           />
         </div>
-        <div className="post-town">
-          <label htmlFor="postTown" aria-label="postTown">Town</label>
-          <input
-            className='contact contact__post-town'
-            name="postTown"
-            id="postTown"
-            type='text'
-            value={postTown}
-            autoComplete="abcd"
-            placeholder='Town'
-            onChange={(e) => handleOnChange(e)}
-          />
-        </div>
-      </div>
 
-      <div className="contact contact__country">
-        <div className="autoSuggest-container">
-          <label htmlFor="country" aria-label="country">Country</label>
-          <Autosuggest 
-          suggestions={ suggestions }
-          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={onSuggestionsClearedRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          inputProps={inputProps}
-        />
-        </div>
-
-        <div>
-          <label htmlFor="postCode" aria-label="postCode">Post code</label>
-          <input
-            className='contact contact__post-code'
-            name="postCode"
-            id="postCode"
-            type='text'
-            autoComplete="abcd"
+        <div className="contact__country">
+          <div className="input-field contact__country--autoSuggest-container">
+            <label htmlFor="country" aria-label="country">Country</label>
+            <Autosuggest 
+              suggestions={ suggestions }
+              onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+              onSuggestionsClearRequested={onSuggestionsClearedRequested}
+              getSuggestionValue={getSuggestionValue}
+              renderSuggestion={renderSuggestion}
+              inputProps={inputProps}
+            />
+          </div>
+          <InputField 
+            className='contact__country--post-code'
+            label='Post code'
+            id='postCode'
             value={postCode}
-            placeholder='post code eg: Ha4 5gh'
-            onChange={(e) => handleOnChange(e)}
+            autoComplete='off'
+            placeholder="post code eg: Ha4 5gh"
+            onChange={(e)=> handleOnChange(e)}
           />
         </div>
-      </div>
-      <div className="address form__controls">
-        <button className='form__controls--btn submit btn' type='submit'>Submit</button>
-        <button className="form__controls--btn clear btn" type="reset" onClick={clearAddressForm}>Clear</button>
-      </div>
-    </form>
+        <div className="contact__controls">
+          <button 
+            className='contact__controls--submit-btn btn' 
+            type='submit'>Submit</button>
+          <button 
+            className="contact__controls--clear-btn btn" 
+            type="reset" onClick={clearAddressForm}>Clear</button>
+        </div>
+      </form>
   </section>
   );
 };
 
-export default connect(null, {addContact})(AddressForm);
+export default connect(null, { addContact })(AddressForm);

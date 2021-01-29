@@ -19,11 +19,8 @@ const ShowContact:React.FC<IProps> =({contact, fetchContact, match})=>{
             const {id} = match.params;
             fetchContact(id);
         }
-
         fetchSelectedAddress();
     },[fetchContact, match.params]);
-
-    console.log('contact', contact , match);
 
     if(!contact){
         return <div>No contact</div>;
@@ -33,9 +30,12 @@ const ShowContact:React.FC<IProps> =({contact, fetchContact, match})=>{
         <div className="contact">
             <h2>Contact Id: {contact.id}</h2>
             <div className="contact__list">
-                <div className="list-item"><span>Line 1: </span>{contact.houseNo}</div>
-                <div className="list-item"><span>Line 2:</span>{contact.streetName}</div>
-                <div className="list-item"><span>County:</span>{contact.locality}</div>
+                <div className="list-item"><span>Full name :</span>{contact.firstName} {contact.lastName}</div>
+                <div className="list-item"><span>Address :</span>
+                    {contact.houseNo}, 
+                    {contact.streetName}, 
+                    {contact.locality}
+                </div>
                 <div className="list-item"><span>City :</span>{contact.postTown}</div>
                 <div className="list-item"><span>Country:</span>{contact.country}</div>
                 <div className="list-item"><span>Post code:</span>{contact.postCode}</div>
