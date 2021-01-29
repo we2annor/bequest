@@ -223,6 +223,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
             autoComplete={"off"}
             placeholder='first name'
             onChange={(e) => handleOnChange(e)}
+            required={false}
           />
           <InputField
             className='contact__full-name--last-name'
@@ -232,6 +233,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
             autoComplete={"off"}
             placeholder='last name'
             onChange={(e) => handleOnChange(e)}
+            required={false}
           />
         </div>
         <div className='contact__address-lines'>
@@ -243,15 +245,17 @@ const AddressForm: React.FC<AddressFormProps> = ({
             autoComplete={"off"}
             placeholder='House / street name'
             onChange={(e) => handleOnChange(e)}
+            required
           />
           <InputField
             className='contact__address-lines--street-name'
             label='Street Name'
             id='streetName'
             value={streetName}
-            autoComplete='off'
+            autoComplete='abcd'
             placeholder='Street name'
             onChange={(e) => handleOnChange(e)}
+            required
           />
         </div>
 
@@ -264,6 +268,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
             autoComplete='off'
             placeholder='Locality'
             onChange={(e) => handleOnChange(e)}
+            required={false}
           />
           <InputField
             className='contact__area--post-town'
@@ -273,6 +278,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
             autoComplete='off'
             placeholder='Town'
             onChange={(e) => handleOnChange(e)}
+            required
           />
         </div>
 
@@ -298,6 +304,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
             autoComplete='off'
             placeholder='post code eg: Ha4 5gh'
             onChange={(e) => handleOnChange(e)}
+            required
           />
         </div>
         <div className='contact__controls'>
