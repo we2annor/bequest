@@ -10,6 +10,17 @@
       "country": "United Kingdom of Great Britain and Northern Ireland",
       "postCode": "HA9 8RF",
       "id": 1
+    },
+    {
+      "firstName": "James",
+      "lastName": "Dough",
+      "houseNo": "Flat 6",
+      "streetName": "Cranmer House",
+      "locality": "60 Surrey Lane",
+      "postTown": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "postCode": "sw11 3ta",
+      "id": 2
     }
   ]
 }

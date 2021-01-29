@@ -221,7 +221,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
             label='Last Name'
             id='lastName'
             value={lastName}
-            autoComplete={"off"}
+            autoComplete='abc'
             placeholder='last name'
             onChange={(e) => handleOnChange(e)}
             required={false}
@@ -233,7 +233,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
             label='House / Flat Number'
             id='houseNo'
             value={houseNo}
-            autoComplete={"off"}
+            autoComplete='abcd'
             placeholder='House / street name'
             onChange={(e) => handleOnChange(e)}
             required
@@ -263,7 +263,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
           />
           <InputField
             className='contact__area--post-town'
-            label='Town'
+            label='City'
             id='postTown'
             value={postTown}
             autoComplete='off'
