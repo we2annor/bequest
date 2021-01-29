@@ -21,7 +21,6 @@ const Addresses: React.FC<AddressesProps> = ({
   }, [fetchContacts]);
 
   const renderAddresses = () => {
-    console.log("book", addressBook.length);
     if (addressBook.length > 0) {
       return addressBook.map((address) => (
         <Link to={`/contact/${address.id}`} key={address.id}>

@@ -198,7 +198,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
   };
 
   return (
-    <section className='contact-form'>
+    <section data-testid='contact-form' className='contact-form'>
       <h2 className='u-margin-medium'>Add address manually</h2>
       <form className='contact' onSubmit={(e) => handleSubmit(e)}>
         {validationError && (

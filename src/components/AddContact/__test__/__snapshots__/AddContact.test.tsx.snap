@@ -1,0 +1,301 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When AddContact Component Mounts Maches snapshop 1`] = `
+<div
+  className="find-address"
+>
+  <form
+    className="find-address__form"
+  >
+    <div
+      className="find-address__form--input-field"
+    >
+      <label
+        aria-label="postCode"
+        hidden={true}
+        htmlFor="postCode"
+      >
+        Find Address
+      </label>
+      <input
+        autoComplete="off"
+        id="postCode"
+        name="postCode"
+        onChange={[Function]}
+        placeholder="Find address by post code"
+        type="text"
+      />
+    </div>
+  </form>
+  <section
+    className="contact-form"
+    data-testid="contact-form"
+  >
+    <h2
+      className="u-margin-medium"
+    >
+      Add address manually
+    </h2>
+    <form
+      className="contact"
+      onSubmit={[Function]}
+    >
+      <ul
+        className="contact__field-errors"
+      />
+      <div
+        className="contact__full-name"
+      >
+        <div
+          className="input-field contact__full-name--first-name"
+        >
+          <label
+            aria-label="firstName"
+            htmlFor="firstName"
+          >
+            First Name
+          </label>
+          <input
+            autoComplete="off"
+            id="firstName"
+            name="firstName"
+            onChange={[Function]}
+            placeholder="first name"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="input-field contact__full-name--last-name"
+        >
+          <label
+            aria-label="lastName"
+            htmlFor="lastName"
+          >
+            Last Name
+          </label>
+          <input
+            autoComplete="abc"
+            id="lastName"
+            name="lastName"
+            onChange={[Function]}
+            placeholder="last name"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="contact__address-lines"
+      >
+        <div
+          className="input-field contact__address-lines--house-no"
+        >
+          <label
+            aria-label="houseNo"
+            htmlFor="houseNo"
+          >
+            House / Flat Number
+            <span
+              style={
+                Object {
+                  "color": "red",
+                  "fontSize": "1.2rem",
+                }
+              }
+            >
+              required field *
+            </span>
+          </label>
+          <input
+            autoComplete="abcd"
+            id="houseNo"
+            name="houseNo"
+            onChange={[Function]}
+            placeholder="House / street name"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="input-field contact__address-lines--street-name"
+        >
+          <label
+            aria-label="streetName"
+            htmlFor="streetName"
+          >
+            Street Name
+            <span
+              style={
+                Object {
+                  "color": "red",
+                  "fontSize": "1.2rem",
+                }
+              }
+            >
+              required field *
+            </span>
+          </label>
+          <input
+            autoComplete="abcd"
+            id="streetName"
+            name="streetName"
+            onChange={[Function]}
+            placeholder="Street name"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="contact__area"
+      >
+        <div
+          className="input-field contact__area--locality"
+        >
+          <label
+            aria-label="locality"
+            htmlFor="locality"
+          >
+            Locality
+          </label>
+          <input
+            autoComplete="off"
+            id="locality"
+            name="locality"
+            onChange={[Function]}
+            placeholder="Locality"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="input-field contact__area--post-town"
+        >
+          <label
+            aria-label="postTown"
+            htmlFor="postTown"
+          >
+            City
+            <span
+              style={
+                Object {
+                  "color": "red",
+                  "fontSize": "1.2rem",
+                }
+              }
+            >
+              required field *
+            </span>
+          </label>
+          <input
+            autoComplete="off"
+            id="postTown"
+            name="postTown"
+            onChange={[Function]}
+            placeholder="Town"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="contact__country"
+      >
+        <div
+          className="input-field contact__country--autoSuggest-container"
+        >
+          <label
+            aria-label="country"
+            htmlFor="country"
+          >
+            Country
+          </label>
+          <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-1"
+            className="react-autosuggest__container"
+            role="combobox"
+          >
+            <input
+              aria-activedescendant={null}
+              aria-autocomplete="list"
+              aria-controls="react-autowhatever-1"
+              autoComplete="abcd"
+              className="react-autosuggest__input"
+              id="country"
+              name="country"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Country"
+              type="text"
+              value=""
+            />
+            <div
+              className="react-autosuggest__suggestions-container"
+              id="react-autowhatever-1"
+              role="listbox"
+            />
+          </div>
+        </div>
+        <div
+          className="input-field contact__country--post-code"
+        >
+          <label
+            aria-label="postCode"
+            htmlFor="postCode"
+          >
+            Post code
+            <span
+              style={
+                Object {
+                  "color": "red",
+                  "fontSize": "1.2rem",
+                }
+              }
+            >
+              required field *
+            </span>
+          </label>
+          <input
+            autoComplete="off"
+            id="postCode"
+            name="postCode"
+            onChange={[Function]}
+            placeholder="post code eg: Ha4 5gh"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="contact__controls"
+      >
+        <button
+          className="contact__controls--submit-btn btn"
+          type="submit"
+        >
+          Submit
+        </button>
+        <button
+          className="contact__controls--clear-btn btn"
+          onClick={[Function]}
+          type="reset"
+        >
+          Clear
+        </button>
+      </div>
+    </form>
+  </section>
+</div>
+`;

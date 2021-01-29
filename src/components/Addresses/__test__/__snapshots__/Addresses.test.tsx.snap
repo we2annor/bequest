@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When Address Mounts Matches snapshot 1`] = `
+<div
+  className="addresses"
+>
+  <div
+    className="addresses__search-box"
+    data-testid="address-search"
+  >
+    <input
+      className="input input__field"
+      onChange={[Function]}
+      placeholder="Search contact"
+      type="text"
+    />
+  </div>
+  <section>
+    <h2
+      className="item item__heading"
+    >
+      Addresses
+    </h2>
+    <div>
+      No contacts
+    </div>
+  </section>
+</div>
+`;

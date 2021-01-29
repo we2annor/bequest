@@ -8,7 +8,7 @@ import history from "../history";
 
 const App: React.FC = () => {
   return (
-    <div className='container'>
+    <div data-testid='app' className='container'>
       <Router history={history}>
         <Navigation />
         <Route path='/' exact component={Addresses} />

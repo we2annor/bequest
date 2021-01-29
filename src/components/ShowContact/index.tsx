@@ -27,7 +27,7 @@ const ShowContact: React.FC<IProps> = ({ contact, fetchContact, match }) => {
   }
 
   return (
-    <div className='contact'>
+    <div data-testid='contact' className='contact'>
       <h2>Contact Id: {contact.id}</h2>
       <div className='contact__list'>
         <div className='list-item'>

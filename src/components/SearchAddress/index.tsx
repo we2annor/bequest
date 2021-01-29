@@ -13,7 +13,7 @@ const SearchAddress: React.FC<ISearchAddressProps> = ({ getSearchTerm }) => {
   };
 
   return (
-    <div className='addresses__search-box'>
+    <div data-testid='address-search' className='addresses__search-box'>
       <input
         className='input input__field'
         type='text'
