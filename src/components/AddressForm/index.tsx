@@ -32,7 +32,6 @@ const AddressForm: React.FC<AddressFormProps> = ({
   const [suggestions, setSuggestions] = useState([]);
   const [postCode, setPostCode] = useState("");
   const [validationError, setValidationError] = useState({});
-  const [passedValidation, setPassedValidation] = useState(false);
 
   useEffect(() => {
     const getSelectedAddress = () => {
@@ -122,9 +121,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
     setPostTown("");
     setCountry("");
     setPostCode("");
-    setPassedValidation(false);
     setValidationError({});
-    console.log("val errors", validationError);
   };
 
   const isEmpty = (obj: Object) => {
@@ -149,12 +146,6 @@ const AddressForm: React.FC<AddressFormProps> = ({
       errors.postCode = "Post code field is required";
     }
 
-    if (isEmpty(errors)) {
-      setPassedValidation(true);
-    } else {
-      setPassedValidation(false);
-      setValidationError(errors);
-    }
     return isEmpty(errors);
   };
 
@@ -274,7 +265,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
             className='contact__area--post-town'
             label='Town'
             id='postTown'
-            value={houseNo}
+            value={postTown}
             autoComplete='off'
             placeholder='Town'
             onChange={(e) => handleOnChange(e)}
