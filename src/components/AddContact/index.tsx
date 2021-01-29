@@ -16,7 +16,9 @@ const AddContact: React.FC = () => {
   const [selectedAddress, setSelectedAddress] = useState<Address>(
     InitialAddressValues
   );
-  const [addressSuggestions, setAddressSuggestions] = useState<ISuggestionResult[]>([]);
+  const [addressSuggestions, setAddressSuggestions] = useState<
+    ISuggestionResult[]
+  >([]);
   const [findError, setFindError] = useState("");
   const [fetchError, setFetchError] = useState("");
   const API_KEY = "cCzwYuxt30OW7mkyB6DZeQ29886";

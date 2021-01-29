@@ -9,5 +9,5 @@ export const addressBook = axios.create({
 });
 
 export const countryNames = axios.create({
-  baseURL: "https://restcountries.eu/rest/v2/",// name/united%20kingdom"
-})
+  baseURL: "https://restcountries.eu/rest/v2/",
+});

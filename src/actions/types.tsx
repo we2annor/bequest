@@ -1,72 +1,77 @@
-export const ADD_CONTACT = 'ADD_CONTACT';
-export const FETCH_CONTACTS = 'FETCH_CONCTACTS';
-export const FETCH_CONTACT = 'FETCH_CONTACT';
-export const DELETE_CONTACT = 'DELETE_CONTACT';
-export const EDIT_CONTACT = 'EDIT_CONTACT';
+export const ADD_CONTACT = "ADD_CONTACT";
+export const FETCH_CONTACTS = "FETCH_CONCTACTS";
+export const FETCH_CONTACT = "FETCH_CONTACT";
+export const DELETE_CONTACT = "DELETE_CONTACT";
+export const EDIT_CONTACT = "EDIT_CONTACT";
 
 export interface AddressesState {
-    addressBook: Address;
+  addressBook: Address;
 }
 
 export interface Address {
-    firstName : string;
-    lastName: string;
-    houseNo: string;
-    streetName: string;
-    locality: string;
-    postTown: string;
-    country: string;
-    postCode: string;
-    id: number
+  firstName: string;
+  lastName: string;
+  houseNo: string;
+  streetName: string;
+  locality: string;
+  postTown: string;
+  country: string;
+  postCode: string;
+  id: number;
 }
 
 interface ID {
-    id: number
+  id: number;
 }
 
 export type AddressKey = keyof Address;
 
 export const InitialAddressValues = {
-    firstName: '',
-    lastName: '',
-    houseNo:'',
-    streetName:'',
-    locality: '',
-    postTown : '',
-    country: '',
-    postCode: '',
-    id: 0
-}
+  firstName: "",
+  lastName: "",
+  houseNo: "",
+  streetName: "",
+  locality: "",
+  postTown: "",
+  country: "",
+  postCode: "",
+  id: 0,
+};
 
 export interface AddressFormProps {
   selectedAddress: Address;
   postcode: string;
-  addContact: (formValues:Address)=>void;
+  addContact: (formValues: Address) => void;
 }
 
 export interface AddNewContact {
-    type: typeof ADD_CONTACT
-    payload: Address
+  type: typeof ADD_CONTACT;
+  payload: Address;
 }
 
 export interface FetchContact {
-    type: typeof FETCH_CONTACT;
-    payload: Address
+  type: typeof FETCH_CONTACT;
+  payload: Address;
 }
 
 export interface FetchContacts {
-    type: typeof FETCH_CONTACTS;
-    payload: Address
+  type: typeof FETCH_CONTACTS;
+  payload: Address;
 }
 
 export interface EditContact {
-    type: typeof EDIT_CONTACT;
-    payload: Address
+  type: typeof EDIT_CONTACT;
+  payload: Address;
 }
 
 export interface DeleteContact {
-    type : typeof DELETE_CONTACT;
-    payload: ID
+  type: typeof DELETE_CONTACT;
+  payload: ID;
 }
 
-export type AddressBookActionTypes = AddNewContact | FetchContact | FetchContacts | EditContact | DeleteContact ; 
+export type AddressBookActionTypes =
+  | AddNewContact
+  | FetchContact
+  | FetchContacts
+  | EditContact
+  | DeleteContact;

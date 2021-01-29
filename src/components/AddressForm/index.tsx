@@ -1,22 +1,26 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
-import Autosuggest from 'react-autosuggest';
-import { connect} from 'react-redux';
-import { addContact} from '../../actions';
-import {countryNames} from '../../api/addressBook';
-import { Address, AddressFormProps } from '../../actions/types';
-import InputField from '../InputField';
-import Error from '../Error';
+import Autosuggest from "react-autosuggest";
+import { connect } from "react-redux";
+import { addContact } from "../../actions";
+import { countryNames } from "../../api/addressBook";
+import { Address, AddressFormProps } from "../../actions/types";
+import InputField from "../InputField";
+import Error from "../Error";
 
 interface IValidate {
   firstName: string;
   lastName: string;
   houseNo: string;
-  postTown : string;
-  country : string;
-  postCode : string;
+  postTown: string;
+  country: string;
+  postCode: string;
 }
 
-const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, addContact }) => {
+const AddressForm: React.FC<AddressFormProps> = ({
+  selectedAddress,
+  postcode,
+  addContact,
+}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [houseNo, setHouseNo] = useState("");
@@ -28,251 +32,257 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
   const [suggestions, setSuggestions] = useState([]);
   const [postCode, setPostCode] = useState("");
   const [validationError, setValidationError] = useState({});
-  const [passedValidation, setPassedValidation]=useState(false);
+  const [passedValidation, setPassedValidation] = useState(false);
 
   useEffect(() => {
     const getSelectedAddress = () => {
-        const address = Object.values(selectedAddress);
-        setHouseNo(address[0].toString());
-        setStreetName(address[1].toString());
-        setLocality(address[2].toString());
-        setPostTown(address[3].toString());
-        setCountry(address[4].toString());
-        setPostCode(postcode);
+      const address = Object.values(selectedAddress);
+      setHouseNo(address[0].toString());
+      setStreetName(address[1].toString());
+      setLocality(address[2].toString());
+      setPostTown(address[3].toString());
+      setCountry(address[4].toString());
+      setPostCode(postcode);
     };
 
     getSelectedAddress();
   }, [selectedAddress, postcode]);
 
-  useEffect(()=>{
-    const fetchCountrySuggestions = async ()=>{
-      if(country){
+  useEffect(() => {
+    const fetchCountrySuggestions = async () => {
+      if (country) {
         try {
-          const response = await countryNames.get(`/name/${country}`)
-          setCountrySuggestions(response.data)
+          const response = await countryNames.get(`/name/${country}`);
+          setCountrySuggestions(response.data);
         } catch (error) {
-          console.log('country suggestion Error', error)
+          console.log("country suggestion Error", error);
         }
       }
     };
- 
-    fetchCountrySuggestions();
-  },[country]);
 
-  const handleOnChange =(e:ChangeEvent<HTMLInputElement>)=>{
-    const {name, value} = e.target;
-    switch(name){
-      case 'firstName':
+    fetchCountrySuggestions();
+  }, [country]);
+
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    switch (name) {
+      case "firstName":
         setFirstName(value);
         return;
-      case 'lastName': 
+      case "lastName":
         setLastName(value);
         return;
-      case 'houseNo':
+      case "houseNo":
         setHouseNo(value);
         return;
-      case 'streetName':
+      case "streetName":
         setStreetName(value);
-        return
-      case 'locality':
+        return;
+      case "locality":
         setLocality(value);
-        return
-      case 'postTown':
+        return;
+      case "postTown":
         setPostTown(value);
-        return
-      case 'country':
-        console.log('val')
+        return;
+      case "country":
+        console.log("val");
         setCountry(value);
-        return
-      case 'postCode':
-        setPostCode(value)
-        return
+        return;
+      case "postCode":
+        setPostCode(value);
+        return;
     }
-  }
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(addressValidated()){
-      const formValues : Address = {
-        firstName, 
-        lastName, 
-        houseNo, 
-        streetName, 
-        locality, 
-        postTown, 
-        country, 
-        postCode, 
-        id:0
+    if (addressValidated()) {
+      const formValues: Address = {
+        firstName,
+        lastName,
+        houseNo,
+        streetName,
+        locality,
+        postTown,
+        country,
+        postCode,
+        id: 0,
       };
       addContact(formValues);
-      clearAddressForm()
-    } 
+      clearAddressForm();
+    }
   };
 
-  const clearAddressForm=()=>{
-    setFirstName('');
-    setLastName('');
-    setHouseNo('');
-    setStreetName('');
-    setLocality('');
-    setPostTown('');
-    setCountry('')
-    setPostCode('');
+  const clearAddressForm = () => {
+    setFirstName("");
+    setLastName("");
+    setHouseNo("");
+    setStreetName("");
+    setLocality("");
+    setPostTown("");
+    setCountry("");
+    setPostCode("");
     setPassedValidation(false);
     setValidationError({});
-    console.log('val errors', validationError)
-  }
+    console.log("val errors", validationError);
+  };
 
- const isEmpty = (obj:Object) => {
-    for(const key in obj){
-      if(obj.hasOwnProperty(key))
-        return false;
+  const isEmpty = (obj: Object) => {
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) return false;
     }
     return true;
-    } 
+  };
 
-  const addressValidated = () : boolean =>{
-    const errors : IValidate = Object();
-    if(!houseNo){
-      errors.houseNo = 'House number or house name is required';
+  const addressValidated = (): boolean => {
+    const errors: IValidate = Object();
+    if (!houseNo) {
+      errors.houseNo = "House number or house name is required";
     }
-    if(!postTown){
+    if (!postTown) {
       errors.postTown = "Town field is required";
     }
-    if(!country){
+    if (!country) {
       errors.country = "Country field is required";
     }
-    if(!postCode){
+    if (!postCode) {
       errors.postCode = "Post code field is required";
     }
 
-    if(isEmpty(errors)){
-      setPassedValidation(true)
+    if (isEmpty(errors)) {
+      setPassedValidation(true);
     } else {
-      setPassedValidation(false)
-      setValidationError(errors)
+      setPassedValidation(false);
+      setValidationError(errors);
     }
     return isEmpty(errors);
   };
 
-  const showError =()=>{
+  const showError = () => {
     const errors = Object.values(validationError);
-    const valErrors = errors.map((error,index) =>(
-      <li key={index} className="field-error__list">
-        <Error message={error as string}/>
-      </li> 
-      ));
-      return valErrors;
-  }
+    const valErrors = errors.map((error, index) => (
+      <li key={index} className='field-error__list'>
+        <Error message={error as string} />
+      </li>
+    ));
+    return valErrors;
+  };
 
-  const getSuggestions = (value :any)=>{
+  const getSuggestions = (value: any) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
-    return inputLength === 0 ? [] : countrySuggestions.filter((suggestion : any) => 
-      suggestion.name.toLowerCase().slice(0, inputLength) === inputValue)
-  }
+    return inputLength === 0
+      ? []
+      : countrySuggestions.filter(
+          (suggestion: any) =>
+            suggestion.name.toLowerCase().slice(0, inputLength) === inputValue
+        );
+  };
 
-  const onSuggestionsFetchRequested = ({value}:any) => {
-    setSuggestions(getSuggestions(value))
-  }
+  const onSuggestionsFetchRequested = ({ value }: any) => {
+    setSuggestions(getSuggestions(value));
+  };
 
   const onSuggestionsClearedRequested = () => {
     setSuggestions([]);
-  }
+  };
 
-  const getSuggestionValue = (suggestion : any) => suggestion.name;
-  const renderSuggestion =(suggestion: any)=>(
-    <div className="countryAutoSuggestion">{suggestion.name}</div>
-  )
+  const getSuggestionValue = (suggestion: any) => suggestion.name;
+  const renderSuggestion = (suggestion: any) => (
+    <div className='countryAutoSuggestion'>{suggestion.name}</div>
+  );
 
-  const onChange = (_event:any, {newValue}:any)=>{
-    setCountry(newValue)
-  }
+  const onChange = (_event: any, { newValue }: any) => {
+    setCountry(newValue);
+  };
 
   const inputProps = {
-    placeholder: 'Country',
-    autoComplete: 'abcd',
+    placeholder: "Country",
+    autoComplete: "abcd",
     name: "country",
-    id: "country" ,
+    id: "country",
     value: country,
-    onChange : onChange
-  }
+    onChange: onChange,
+  };
 
   return (
-    <section className="contact-form">
-
-      <h2 className="u-margin-medium">Add address manually</h2>
+    <section className='contact-form'>
+      <h2 className='u-margin-medium'>Add address manually</h2>
       <form className='contact' onSubmit={(e) => handleSubmit(e)}>
-        {validationError && <ul className="contact__field-errors">{showError()}</ul>}
+        {validationError && (
+          <ul className='contact__field-errors'>{showError()}</ul>
+        )}
 
-        <div className="contact__full-name">
-          <InputField 
+        <div className='contact__full-name'>
+          <InputField
             className='contact__full-name--first-name'
             label='First Name'
             id='firstName'
             value={firstName}
-            autoComplete={'off'}
-            placeholder="first name"
-            onChange={(e)=> handleOnChange(e)}
+            autoComplete={"off"}
+            placeholder='first name'
+            onChange={(e) => handleOnChange(e)}
           />
-          <InputField 
+          <InputField
             className='contact__full-name--last-name'
             label='Last Name'
             id='lastName'
             value={lastName}
-            autoComplete={'off'}
-            placeholder="last name"
-            onChange={(e)=> handleOnChange(e)}
+            autoComplete={"off"}
+            placeholder='last name'
+            onChange={(e) => handleOnChange(e)}
           />
         </div>
-        <div className="contact__address-lines">
-          <InputField 
+        <div className='contact__address-lines'>
+          <InputField
             className='contact__address-lines--house-no'
             label='House / Flat Number'
             id='houseNo'
             value={houseNo}
-            autoComplete={'off'}
-            placeholder="House / street name"
-            onChange={(e)=> handleOnChange(e)}
+            autoComplete={"off"}
+            placeholder='House / street name'
+            onChange={(e) => handleOnChange(e)}
           />
-          <InputField 
+          <InputField
             className='contact__address-lines--street-name'
             label='Street Name'
             id='streetName'
             value={streetName}
             autoComplete='off'
-            placeholder="Street name"
-            onChange={(e)=> handleOnChange(e)}
+            placeholder='Street name'
+            onChange={(e) => handleOnChange(e)}
           />
         </div>
 
-        <div className="contact__area">
-          <InputField 
+        <div className='contact__area'>
+          <InputField
             className='contact__area--locality'
             label='Locality'
             id='locality'
             value={locality}
             autoComplete='off'
-            placeholder="Locality"
-            onChange={(e)=> handleOnChange(e)}
+            placeholder='Locality'
+            onChange={(e) => handleOnChange(e)}
           />
-          <InputField 
+          <InputField
             className='contact__area--post-town'
             label='Town'
             id='postTown'
             value={houseNo}
             autoComplete='off'
-            placeholder="Town"
-            onChange={(e)=> handleOnChange(e)}
+            placeholder='Town'
+            onChange={(e) => handleOnChange(e)}
           />
         </div>
 
-        <div className="contact__country">
-          <div className="input-field contact__country--autoSuggest-container">
-            <label htmlFor="country" aria-label="country">Country</label>
-            <Autosuggest 
-              suggestions={ suggestions }
+        <div className='contact__country'>
+          <div className='input-field contact__country--autoSuggest-container'>
+            <label htmlFor='country' aria-label='country'>
+              Country
+            </label>
+            <Autosuggest
+              suggestions={suggestions}
               onSuggestionsFetchRequested={onSuggestionsFetchRequested}
               onSuggestionsClearRequested={onSuggestionsClearedRequested}
               getSuggestionValue={getSuggestionValue}
@@ -280,26 +290,30 @@ const AddressForm: React.FC<AddressFormProps> = ({ selectedAddress, postcode, ad
               inputProps={inputProps}
             />
           </div>
-          <InputField 
+          <InputField
             className='contact__country--post-code'
             label='Post code'
             id='postCode'
             value={postCode}
             autoComplete='off'
-            placeholder="post code eg: Ha4 5gh"
-            onChange={(e)=> handleOnChange(e)}
+            placeholder='post code eg: Ha4 5gh'
+            onChange={(e) => handleOnChange(e)}
           />
         </div>
-        <div className="contact__controls">
-          <button 
-            className='contact__controls--submit-btn btn' 
-            type='submit'>Submit</button>
-          <button 
-            className="contact__controls--clear-btn btn" 
-            type="reset" onClick={clearAddressForm}>Clear</button>
+        <div className='contact__controls'>
+          <button className='contact__controls--submit-btn btn' type='submit'>
+            Submit
+          </button>
+          <button
+            className='contact__controls--clear-btn btn'
+            type='reset'
+            onClick={clearAddressForm}
+          >
+            Clear
+          </button>
         </div>
       </form>
-  </section>
+    </section>
   );
 };
 

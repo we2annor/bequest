@@ -27,7 +27,7 @@ const AddressSuggestions: React.FC<ISuggestionProps> = ({
     setShowSuggestions(false);
   };
 
-  console.log('suggest', suggestionResults)
+  console.log("suggest", suggestionResults);
 
   return (
     <>

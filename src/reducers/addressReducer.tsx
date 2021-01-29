@@ -9,7 +9,7 @@ import {
   AddressBookActionTypes,
 } from "../actions/types";
 
-const initialState : AddressesState = Object({})
+const initialState: AddressesState = Object({});
 
 export const addressReducer = (
   state = initialState,
@@ -22,10 +22,10 @@ export const addressReducer = (
       return { ...state, ..._.mapKeys(action.payload, "id") };
     case ADD_CONTACT:
       return { ...state, [action.payload.id]: action.payload };
-    case EDIT_CONTACT : 
-      return {...state, [action.payload.id]: action.payload};
-    //case DELETE_CONTACT: 
-      //return _.omit(state, action.payload);
+    case EDIT_CONTACT:
+      return { ...state, [action.payload.id]: action.payload };
+    //case DELETE_CONTACT:
+    //return _.omit(state, action.payload);
     default:
       return state;
   }
