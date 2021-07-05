@@ -1,6 +1,6 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-import SearchAddress from "../index";
+import SearchAddress from "../SearchAddress";
 
 afterEach(cleanup);
 

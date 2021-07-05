@@ -9,12 +9,12 @@ export interface AddressesState {
 }
 
 export interface Address {
-  firstName: string;
-  lastName: string;
-  houseNo: string;
-  streetName: string;
+  line1: string;
+  line2: string;
+  line3: string;
   locality: string;
-  postTown: string;
+  townCity: string;
+  county: string;
   country: string;
   postCode: string;
   id: number;
@@ -27,21 +27,22 @@ interface ID {
 export type AddressKey = keyof Address;
 
 export const InitialAddressValues = {
-  firstName: "",
-  lastName: "",
-  houseNo: "",
-  streetName: "",
-  locality: "",
-  postTown: "",
+  line1: "",
+  line2: "",
+  line3: "",
   country: "",
+  locality: "",
+  townCity: "",
+  county: "",
   postCode: "",
   id: 0,
 };
 
 export interface AddressFormProps {
-  selectedAddress: Address;
+  selectedAddress: string;
   postcode: string;
   addContact: (formValues: Address) => void;
+  hideAddAddressManuallyForms: () => void;
 }
 
 export interface AddNewContact {

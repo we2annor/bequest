@@ -2,12 +2,12 @@ import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
+import { rootReducer } from "../../../reducers";
+import { Address } from "../../../actions/types";
+//import { fetchContact } from "../../../actions/index";
 import thunk from "redux-thunk";
 import renderer from "react-test-renderer";
-import { rootReducer } from "../../../reducers";
-
 import ShowContact from "../index";
-import { Address } from "../../../actions/types";
 
 afterEach(cleanup);
 
@@ -29,16 +29,25 @@ const match = {
   },
 };
 
+//fetchContact(1);
+
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 describe("When ShowContact Mounts", () => {
   test("Should Render successfully", () => {
-    const { getByTestId } = render(
+    render(
       <Provider store={store}>
-        <ShowContact contact={contact} match={match} />
+        <ShowContact contact={contact} fetchContact match={match} />
       </Provider>
     );
+  });
 
+  test("Should render with a contact prop", () => {
+    const { getByTestId } = render(
+      <Provider store={store}>
+        <ShowContact contact={contact} fetchContact match={match} />
+      </Provider>
+    );
     expect(getByTestId("contact")).toBeTruthy();
   });
 

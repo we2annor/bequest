@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 interface ISuggestionProps {
   suggestionResults: ISuggestionResult[];
-  getAddressId: AddressId;
+  getAddress: AddressId;
 }
 
 interface ISuggestionResult {
@@ -12,22 +12,20 @@ interface ISuggestionResult {
 }
 
 interface AddressId {
-  (id: string): void;
+  (address: string): void;
 }
 
 const AddressSuggestions: React.FC<ISuggestionProps> = ({
   suggestionResults,
-  getAddressId,
+  getAddress,
 }) => {
   const [showSuggestions, setShowSuggestions] = useState(true);
 
   const onAddressSelect = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { id } = e.currentTarget;
-    getAddressId(id);
+    const { textContent } = e.currentTarget;
+    textContent ? getAddress(textContent) : getAddress("");
     setShowSuggestions(false);
   };
-
-  console.log("suggest", suggestionResults);
 
   return (
     <>
@@ -40,7 +38,7 @@ const AddressSuggestions: React.FC<ISuggestionProps> = ({
               onClick={(e) => onAddressSelect(e)}
               key={suggestionResult.id}
             >
-              {suggestionResult.address}
+              {suggestionResult}
             </div>
           ))}
         </div>

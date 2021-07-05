@@ -15,11 +15,18 @@ body {
 }
 
 input {
-    border: 1px solid $color-background-light-grey;
+    border: 1px solid #cdcdcd;
     background-color: $color-background-light-grey;
     height: 1rem;
-    padding: 2.4rem;
+    padding: 2rem;
     font-size: 1.8rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 .btn {

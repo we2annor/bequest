@@ -15,6 +15,7 @@ export const addContact = (formValues: Address) => async (
 ) => {
   const response = await addressBook.post("/addressBook", formValues);
   dispatch({ type: ADD_CONTACT, payload: response.data });
+  console.log("add contact", formValues);
   history.push("/");
 };
 

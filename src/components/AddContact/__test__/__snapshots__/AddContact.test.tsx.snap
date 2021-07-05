@@ -33,6 +33,7 @@ exports[`When AddContact Component Mounts Maches snapshop 1`] = `
   >
     <h2
       className="u-margin-medium"
+      data-testid="heading-2"
     >
       Add address manually
     </h2>

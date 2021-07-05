@@ -2,12 +2,23 @@
     width: 70vw;
     margin: 0 auto;
 
-    .contact {
+    &__form-container {
         box-shadow: 0 .2rem .8rem rgba($color-background-medium-grey, .4);
+        padding: 4rem;
+    }
+
+    .contact {
         width: 70vw;
         margin: 0 auto;
-        padding: 2rem;
-        text-align: left;
+        padding: 4rem;
+        display: grid;
+        align-items:flex-end;
+        align-content: center;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(5, minmax(min-content 1fr));
+        grid-gap: 3rem;
+        border-radius: .4rem;
+        border: 1px solid #cdcdcd;
 
         color: $color-primary-dark-grey;
         width: 100%;
@@ -21,16 +32,13 @@
 
              .field-error__list {
                 padding: 0;
-                list-style-type: square;
-                color: red;
+                color: blue;
             }
         }
 
         .input-field {
-            width: 48%;
-            display: inline-block;
-            margin-bottom: 2rem;
             font-size: 1.6rem;
+            position: relative;
 
             label {
                 padding: 1rem 0;
@@ -38,46 +46,58 @@
 
             input {
                 width: 100%;
+                border-radius: .4rem;
+                margin-top: 1rem;
             }
-        }
 
-        &__full-name,
-        &__address-lines,
-        &__area,
-        &__country {
-            :last-child {
-                float: right;
+            input:focus {
+                border: 1px solid rgb(140, 241, 140);
+                background-color: rgb(240, 250, 240);
+
             }
         }
 
         &__controls {
+            grid-column: 1/-1;
+            grid-row: 5/6;
+
             &--submit-btn {
-                margin-right: 4rem;
-                background-color: $color-background-light-teal;
-                color: $color-background-teal;
-            }
-
-            &--clear-btn {
-                background-color: $color-background-light-grey;
-                color: $color-background-medium-grey;
+                margin-right: 3rem;
             }
         }
 
-        &__controls {
-            margin: 2rem 0;
-            border
+        .line1Error input, 
+        .townCityError input,
+        .countryError input,
+        .postCodeError input, 
+        .line1Error input::placeholder,
+        .townCityError input::placeholder,
+        .countryError input::placeholder,
+        .postCodeError input::placeholder {
+            color: #fa392b;
+            background-color: #fcf6f6;
+        }
 
-            &--btn {
-                background-color: $color-background-light-teal;
-                color: $color-background-teal;
-                margin-top: 4rem;
-            }
+        .line1Error input, 
+        .townCityError input,
+        .countryError input,
+        .postCodeError input {
+            border: 1px solid #fcd4d4;
+        }
 
-            &--btn:last-child{
-                margin-left: 2rem;
-                background-color: $color-background-light-grey;
-                color: $color-background-medium-grey;
-            } 
+        
+
+        span.required {
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: #fa392b;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        &__full-name--first-name {
+            //border: 1px solid blue;
         }
 
         &__country--autoSuggest-container {

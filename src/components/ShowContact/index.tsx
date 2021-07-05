@@ -23,24 +23,24 @@ const ShowContact: React.FC<IProps> = ({ contact, fetchContact, match }) => {
   }, [fetchContact, match.params]);
 
   if (!contact) {
-    return <div>No contact</div>;
+    return <div>No addresses</div>;
   }
 
   return (
-    <div data-testid='contact' className='contact'>
-      <h2>Contact Id: {contact.id}</h2>
+    <main data-testid='contact' className='contact'>
+      <h2>Address Id: {contact.id}</h2>
       <div className='contact__list'>
         <div className='list-item'>
-          <span>Full name :</span>
-          {contact.firstName} {contact.lastName}
+          <span>Address :</span>
+          {contact.line1},{contact.line2},{contact.line3}
         </div>
         <div className='list-item'>
-          <span>Address :</span>
-          {contact.houseNo},{contact.streetName},{contact.locality}
+          <span>Locality :</span>
+          {contact.locality}
         </div>
         <div className='list-item'>
           <span>City :</span>
-          {contact.postTown}
+          {contact.townCity}
         </div>
         <div className='list-item'>
           <span>Country:</span>
@@ -51,7 +51,7 @@ const ShowContact: React.FC<IProps> = ({ contact, fetchContact, match }) => {
           {contact.postCode}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

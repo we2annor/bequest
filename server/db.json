@@ -1,26 +1,70 @@
 {
   "addressBook": [
     {
-      "firstName": "ernest",
-      "lastName": "annor",
-      "houseNo": "13 Gilbert Scott close",
-      "streetName": "Cranmer House",
-      "locality": "wembley",
-      "postTown": "London",
-      "country": "United Kingdom of Great Britain and Northern Ireland",
-      "postCode": "HA9 8RF",
+      "line1": "100 Thirlmere Gardens",
+      "line2": " ",
+      "line3": " ",
+      "locality": " ",
+      "townCity": " ",
+      "county": " Wembley",
+      "country": " Greater London",
+      "postCode": "ha9 8rf",
       "id": 1
     },
     {
-      "firstName": "James",
-      "lastName": "Dough",
-      "houseNo": "Flat 6",
-      "streetName": "Cranmer House",
-      "locality": "60 Surrey Lane",
-      "postTown": "London",
-      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "line1": "Flat 44",
+      "line2": " Cranmer House",
+      "line3": " 60 Surrey Lane",
+      "locality": " ",
+      "townCity": " ",
+      "county": " London",
+      "country": " ",
       "postCode": "sw11 3ta",
       "id": 2
+    },
+    {
+      "line1": "13 gilbert scott close",
+      "line2": "crawford avenue",
+      "line3": "",
+      "country": "england",
+      "locality": "wembley",
+      "townCity": "london",
+      "county": "middlesex",
+      "postCode": "ha0 2gq",
+      "id": 3
+    },
+    {
+      "line1": "100 Thirlmere Gardens",
+      "line2": " ",
+      "line3": " ",
+      "locality": " ",
+      "townCity": " ",
+      "county": " Wembley",
+      "country": " Greater London",
+      "postCode": "ha9 8rf",
+      "id": 4
+    },
+    {
+      "line1": "Flat 33",
+      "line2": " Cranmer House",
+      "line3": " 60 Surrey Lane",
+      "locality": " ",
+      "townCity": " ",
+      "county": " London",
+      "country": " ",
+      "postCode": "sw11 3ta",
+      "id": 5
+    },
+    {
+      "line1": "Flat 47",
+      "line2": " Connor Court",
+      "line3": " Alfreda Street",
+      "locality": " ",
+      "townCity": " ",
+      "county": " London",
+      "country": " ",
+      "postCode": "sw11 5hf",
+      "id": 6
     }
   ]
 }

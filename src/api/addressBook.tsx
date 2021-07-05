@@ -1,5 +1,6 @@
 import axios from "axios";
 
+export const API_KEY = "cCzwYuxt30OW7mkyB6DZeQ29886";
 export const findAddress = axios.create({
   baseURL: "https://api.getAddress.io/",
 });

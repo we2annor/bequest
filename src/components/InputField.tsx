@@ -9,6 +9,9 @@ interface IProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   autoComplete: string;
   required: boolean;
+  onFocus: () => void;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+  ref: string;
 }
 const InputField: React.FC<IProps> = ({
   className,
@@ -19,26 +22,30 @@ const InputField: React.FC<IProps> = ({
   placeholder,
   autoComplete,
   required,
+  onFocus,
+  onBlur,
+  ref,
 }) => {
   return (
     <div className={`input-field ${className}`}>
       <label htmlFor={id} aria-label={id}>
         {label}
-        {required && (
-          <span style={{ color: "red", fontSize: "1.2rem" }}>
-            required field *
-          </span>
-        )}
+        {required && <span className='required'>required field *</span>}
       </label>
       <input
         type='text'
         id={id}
         name={id}
         value={value}
+        aria-label={label}
         autoComplete={autoComplete}
         placeholder={placeholder}
         onChange={onChange}
+        aria-required={required}
         required={required}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        ref={ref}
       />
     </div>
   );

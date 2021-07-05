@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import renderer from "react-test-renderer";
 import { rootReducer } from "../../../reducers";
-import Address from "../index";
+import Address from "../index"; 
 
 afterEach(cleanup);
 

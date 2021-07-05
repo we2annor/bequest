@@ -1,9 +1,14 @@
 .header {
-    height: 10vh;
+    height: 6vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
     box-shadow: 0 .2rem 1rem rgba($color-primary-dark-grey, 0.2);
     font-size: 2rem;
     text-align: left;
-    margin-bottom: 5rem;
+    position:fixed;
+    background-image:linear-gradient(rgba(4, 88, 107,1), rgba(3, 58, 71, 1)) ;
+    z-index: 100;
 
     .container {
         width: 70vw;
@@ -12,9 +17,9 @@
 
     a {
         display: inline-block;
-        padding: .6rem 2rem;
-        margin: 4rem 1rem 1rem 0;
+        padding: .4rem 2rem;
+        margin: 1rem 1rem 1rem 0;
         text-decoration: none;
-        color: $color-primary-dark-grey;
+        color: #ffffff;
     }
 }
