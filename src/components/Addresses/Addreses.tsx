@@ -27,17 +27,22 @@ const Addresses: React.FC<AddressesProps> = ({
   //   );
   // });
 
+  const addressExist = (address: Address) => {
+    if (!address) {
+      return address;
+    }
+  };
+
   const filteredAddressBook = addressBook.reduce(
     (total: Address[], address: Address) => {
-      const addressContent =
-        address.line1 +
-        address.line2 +
-        address.line3 +
-        address.locality +
-        address.county +
-        address.country +
-        address.postCode;
-      console.log(addressContent);
+      const addressContent = { ...address };
+      // address.line1 +
+      // address.line2 +
+      // address.line3 +
+      // address.locality +
+      // address.county +
+      // address.country +
+      // address.postCode;
       if (
         (address.line1.toLowerCase() + address.postCode.toLowerCase()).indexOf(
           searchedTerm
@@ -49,14 +54,6 @@ const Addresses: React.FC<AddressesProps> = ({
     },
     []
   );
-
-  console.log(
-    "filtered addressbook",
-    filteredAddressBook,
-    "filtered term",
-    searchedTerm
-  );
-  console.log("add", addressBook);
 
   const renderAddresses = () => {
     if (addressBook.length) {

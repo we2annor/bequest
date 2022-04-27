@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import reduxThunk from "redux-thunk";
 import { rootReducer } from "./reducers";
-import App from "./components/App";
+import App from "./App/App";
 import "./assets/sass/main.scss";
 
 declare global {
