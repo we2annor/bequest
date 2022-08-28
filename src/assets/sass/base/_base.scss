@@ -1,43 +1,58 @@
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    box-sizing: border-box;
+  box-sizing: inherit;
+  font-family: sans-serif;
+  font-size: 1.5rem;
 }
 
 input {
-    border: 1px solid #cdcdcd;
-    background-color: $color-background-light-grey;
-    height: 1rem;
-    padding: 2rem;
-    font-size: 1.8rem;
+  border: 1px solid #cdcdcd;
+  background-color: $color-background-light-grey;
+  height: 1rem;
+  padding: 2rem;
+  font-size: 1.8rem;
 }
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 .btn {
-    border: none;
-    padding: $btn-padding;
-    border-radius: .5rem;
-    font-size: 2rem;
-    cursor: pointer;
+  border: none;
+  padding: $btn-padding;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 ::placeholder {
-    font-size: 1.5rem;
-    color: $color-background-medium-grey;
+  font-size: 1.5rem;
+  color: $color-background-medium-grey;
+}
+
+.centered {
+  margin: 3rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 70vw;
+  margin: 0 auto;
 }

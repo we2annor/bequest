@@ -1,0 +1,414 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: inherit;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+}
+
+input {
+  border: 1px solid #cdcdcd;
+  background-color: #eeeeee;
+  height: 1rem;
+  padding: 2rem;
+  font-size: 1.8rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.btn {
+  border: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+::placeholder {
+  font-size: 1.5rem;
+  color: #5c5b5b;
+}
+
+.centered {
+  margin: 3rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 70vw;
+  margin: 0 auto;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #1f1f1f;
+  text-align: center;
+}
+
+h1 {
+  font-size: 5rem;
+  color: #222222;
+}
+
+h2 {
+  font-size: 3.4rem;
+  color: #5c5b5b;
+  text-align: left;
+}
+
+.u-margin-medium {
+  margin: 2rem 0;
+}
+
+.layout-main {
+  margin: 3rem auto;
+  width: 90%;
+}
+
+.contact-form {
+  width: 70vw;
+  margin: 0 auto;
+}
+.contact-form__form-container {
+  box-shadow: 0 0.2rem 0.8rem rgba(92, 91, 91, 0.4);
+  padding: 4rem;
+}
+.contact-form .contact {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 4rem;
+  display: grid;
+  align-items: flex-end;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, minmax(min-content 1fr));
+  grid-gap: 3rem;
+  border-radius: 0.4rem;
+  border: 1px solid #cdcdcd;
+  color: #222222;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+.contact-form .contact__field-errors {
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+.contact-form .contact__field-errors .field-error__list {
+  padding: 0;
+  color: blue;
+}
+.contact-form .contact .input-field {
+  font-size: 1.6rem;
+  position: relative;
+}
+.contact-form .contact .input-field label {
+  padding: 1rem 0;
+}
+.contact-form .contact .input-field input {
+  width: 100%;
+  border-radius: 0.4rem;
+  margin-top: 1rem;
+}
+.contact-form .contact .input-field input:focus {
+  border: 1px solid rgb(140, 241, 140);
+  background-color: rgb(240, 250, 240);
+}
+.contact-form .contact__controls {
+  grid-column: 1/-1;
+  grid-row: 5/6;
+}
+.contact-form .contact__controls--submit-btn {
+  margin-right: 3rem;
+}
+.contact-form .contact .line1Error input,
+.contact-form .contact .townCityError input,
+.contact-form .contact .countryError input,
+.contact-form .contact .postCodeError input,
+.contact-form .contact .line1Error input::placeholder,
+.contact-form .contact .townCityError input::placeholder,
+.contact-form .contact .countryError input::placeholder,
+.contact-form .contact .postCodeError input::placeholder {
+  color: #fa392b;
+  background-color: #fcf6f6;
+}
+.contact-form .contact .line1Error input,
+.contact-form .contact .townCityError input,
+.contact-form .contact .countryError input,
+.contact-form .contact .postCodeError input {
+  border: 1px solid #fcd4d4;
+}
+.contact-form .contact span.required {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fa392b;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+.contact-form .contact__country--autoSuggest-container {
+  display: block;
+}
+.contact-form .contact__country--autoSuggest-container .react-autosuggest__container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.contact-form .contact__country--autoSuggest-container .react-autosuggest__container .countryAutoSuggestion {
+  display: inline-block;
+  width: 100%;
+  left: 0;
+  font-size: 1.6rem;
+  padding: 0.4rem 0;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+}
+.contact-form .contact__country--autoSuggest-container .react-autosuggest__suggestions-container--open {
+  width: 100%;
+  position: absolute;
+}
+.contact-form .contact__country--autoSuggest-container .react-autosuggest__suggestions-list {
+  padding: 1rem;
+}
+
+.find-address {
+  width: 100%;
+  position: relative;
+}
+.find-address__form-bg {
+  width: 100%;
+  height: 45vh;
+  background: #252525;
+  position: relative;
+}
+.find-address__form-container {
+  height: 100%;
+  width: 70vw;
+  margin: 0 auto;
+}
+.find-address__form {
+  position: absolute;
+  width: 50vw;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+}
+.find-address__form--input-field {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(min-content, 1fr) min-content minmax(min-content, 15rem);
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+.find-address__form--input-field .find-label {
+  grid-column: 1/-1;
+}
+.find-address__form--input-field label {
+  font-size: 1.6rem;
+  color: #e4f3f7;
+  text-align: left;
+  margin-bottom: -2rem;
+}
+.find-address__form--input-field input {
+  border-radius: 0.4rem;
+}
+.find-address__form--input-field input.error {
+  border: rgba(190, 35, 35, 0.937254902);
+  background-color: #f75656;
+  color: #e4f3f7;
+}
+.find-address__form--input-field-btn {
+  background-color: #e4f3f7;
+  color: #009bc1;
+  box-shadow: none;
+}
+.find-address__find-btn {
+  border: 1px solid rgb(59, 59, 58);
+  background-image: linear-gradient(rgba(12, 12, 12, 0.9), rgba(29, 29, 29, 0.9));
+  color: #009bc1;
+}
+.find-address__find-btn:hover {
+  border: 1px solid rgba(59, 59, 58, 0.4);
+  background-image: linear-gradient(rgba(29, 29, 29, 0.9), rgba(12, 12, 12, 0.9));
+  color: #e4f3f7;
+}
+
+.suggestions {
+  position: absolute;
+  border: 1px solid #cdcdcd;
+  background-color: #1f1f1f;
+  z-index: 100;
+}
+
+.address-select {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  color: #5c5b5b;
+  cursor: pointer;
+  text-align: left;
+}
+.address-select:not(:last-child) {
+  border-top: 1px solid #eeeeee;
+}
+.address-select:last-child {
+  border-bottom: 1px solid #eeeeee;
+  border-top: 1px solid #eeeeee;
+}
+.address-select:hover {
+  background-color: #009bc1;
+  color: #1f1f1f;
+  border: none;
+}
+
+.container {
+  width: 100vw;
+}
+.container h1 {
+  margin-bottom: 4rem;
+  color: #009bc1;
+}
+
+.error_messages {
+  color: #fa392b;
+  border: 1px solid #fcd4d4;
+  text-align: left;
+  background-color: #fcf6f6;
+  font-size: 1.6rem;
+  list-style: inside;
+  margin-bottom: 4rem;
+  border-radius: 0.4rem;
+}
+.error_messages h3 {
+  padding: 1.5rem 2rem;
+}
+.error_messages li {
+  padding: 0.9rem 2rem;
+  list-style-type: square;
+}
+.error_messages :not(li:last-child) {
+  border-bottom: 1px solid #fcd4d4;
+}
+
+.addresses {
+  width: 70vw;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  text-align: left;
+  color: #222222;
+  margin-top: 5rem;
+}
+.addresses__search-box {
+  margin-bottom: 2rem;
+}
+.addresses__search-box input {
+  width: 100%;
+}
+.addresses__list {
+  padding: 1rem 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 0.2rem 0.8rem rgba(92, 91, 91, 0.4);
+}
+.addresses__list span {
+  display: inline-block;
+  width: 10rem;
+  font-weight: 800;
+}
+.addresses h3 {
+  padding: 2rem;
+  border-bottom: 1px solid #eeeeee;
+}
+.addresses a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.contact {
+  text-align: left;
+  width: 70vw;
+  margin: 0 auto;
+}
+.contact h2 {
+  margin: 2rem 0 5rem 0;
+}
+.contact__list {
+  padding: 1rem 0;
+  font-size: 1.6rem;
+  color: #222222;
+}
+.contact__list .list-item {
+  padding: 0.2rem 0;
+}
+.contact__list .list-item span {
+  display: inline-block;
+  width: 15rem;
+  font-weight: 800;
+  color: #121212;
+}
+
+.header {
+  width: 100%;
+  height: 6rem;
+  box-shadow: 0 0.2rem 1rem rgba(34, 34, 34, 0.2);
+  background-image: linear-gradient(rgb(4, 88, 107), rgb(3, 58, 71));
+  display: flex;
+  padding: 0 10%;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-logo {
+  font-size: 2.25rem;
+  color: #fff;
+  justify-content: center;
+  flex: 20%;
+}
+.header-nav-bar {
+  list-style: none;
+  display: flex;
+  justify-content: right;
+  flex: auto;
+}
+.header-nav-bar li {
+  margin-left: 1.5rem;
+  font-size: 2rem;
+  list-style: none;
+  display: inline-block;
+}
+.header-nav-bar li a {
+  text-decoration: none;
+  color: #88dfdf;
+  padding: 0 1.25rem;
+}
+.header-nav-bar li a:hover, .header-nav-bar li a:active {
+  color: #e6fcfc;
+}
+.header a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=styles.css.map */

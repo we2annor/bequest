@@ -1,82 +1,85 @@
 .find-address {
-    width: 100vw;
+  width: 100%;
+  position: relative;
+
+  &__form-bg {
+    width: 100%;
+    height: 45vh;
+    background: #252525;
     position: relative;
-    margin-top: 5rem;
+  }
 
-    &__form-bg {
-        width: 100%;
-        height: 45vh;
-        background-image: linear-gradient(rgba(32, 32, 32, 0.95),rgb(31, 30, 30)); //url('/img/map.jpg');
-        position: relative;
-    }
+  &__form-container {
+    height: 100%;
+    width: 70vw;
+    margin: 0 auto;
+  }
 
-    &__form-container {
-        height: 100%;
-        width: 70vw;
-        margin: 0 auto;
-    }
+  &__form {
+    position: absolute;
+    width: 50vw;
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%, -50%);
 
+    &--input-field {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(min-content, 1fr) min-content minmax(
+          min-content,
+          15rem
+        );
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 2rem;
+      align-items: center;
+      justify-content: center;
 
-    &__form {
-        position: absolute;
-        width: 50vw;
-        left: 50%;
-        top: 75%;
-        transform: translate(-50%, -50%);
+      .find-label {
+        grid-column: 1/ -1;
+      }
 
-        &--input-field {
-            width: 100%;
-            display: grid;
-            grid-template-columns: minmax(min-content, 1fr) min-content minmax(min-content, 15rem);
-            grid-template-rows: 1fr 1fr;
-            grid-gap: 2rem;
-            align-items: center;
-            justify-content: center;
+      label {
+        font-size: 1.6rem;
+        color: $color-background-light-teal;
+        text-align: left;
+        margin-bottom: -2rem;
+      }
 
-            .house-number {
-                //grid-column: ;
-            }
+      input {
+        border-radius: 0.4rem;
+        //border: 1px solid blue;
 
-            .find-label {
-                grid-column: 1/ -1;
-            }
-
-            label {
-                font-size: 1.6rem;
-                color: $color-background-light-teal;
-                text-align: left;
-                margin-bottom: -2rem;
-            }
-
-            input {
-                border-radius: .4rem;
-                //border: 1px solid blue; 
-
-                &.error {
-                    border: #be2323ef;
-                    background-color: #f75656;
-                    color: $color-background-light-teal;
-                }
-            }
-
-            &-btn {
-                background-color: $color-background-light-teal;
-                color: $color-background-teal;
-                box-shadow: none;
-            }
+        &.error {
+          border: #be2323ef;
+          background-color: #f75656;
+          color: $color-background-light-teal;
         }
-    }
+      }
 
-     &__find-btn {
-        border: 1px solid rgb(59, 59, 58);
-        background-image: linear-gradient(rgba(12,12,12,.9),rgba(29,29,29,.9));
+      &-btn {
+        background-color: $color-background-light-teal;
         color: $color-background-teal;
-
-        &:hover {
-            border: 1px solid rgba(59, 59, 58,.4);
-            background-image: linear-gradient(rgba(29,29,29,.9),rgba(12,12,12,.9));
-            color: $color-background-light-teal;          
-            //border: 1px solid orangered;
-        }
+        box-shadow: none;
+      }
     }
+  }
+
+  &__find-btn {
+    border: 1px solid rgb(59, 59, 58);
+    background-image: linear-gradient(
+      rgba(12, 12, 12, 0.9),
+      rgba(29, 29, 29, 0.9)
+    );
+    color: $color-background-teal;
+
+    &:hover {
+      border: 1px solid rgba(59, 59, 58, 0.4);
+      background-image: linear-gradient(
+        rgba(29, 29, 29, 0.9),
+        rgba(12, 12, 12, 0.9)
+      );
+      color: $color-background-light-teal;
+      //border: 1px solid orangered;
+    }
+  }
 }
