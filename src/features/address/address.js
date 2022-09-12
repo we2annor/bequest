@@ -25,6 +25,7 @@ const addressBook = [
 ];
 const initialState = {
   addresses: addressBook,
+  loaded: true,
 };
 
 const addressSlice = createSlice({
@@ -32,7 +33,5 @@ const addressSlice = createSlice({
   initialState,
   reducers: {},
 });
-
-console.log(addressSlice);
 
 export default addressSlice.reducer;

@@ -314,7 +314,7 @@ h2 {
   border-bottom: 1px solid #fcd4d4;
 }
 
-.addresses {
+.address {
   width: 70vw;
   margin: 0 auto;
   font-size: 1.6rem;
@@ -322,27 +322,27 @@ h2 {
   color: #222222;
   margin-top: 5rem;
 }
-.addresses__search-box {
+.address__search-box {
   margin-bottom: 2rem;
 }
-.addresses__search-box input {
+.address__search-box input {
   width: 100%;
 }
-.addresses__list {
+.address__list {
   padding: 1rem 2rem;
   margin: 2rem 0;
   box-shadow: 0 0.2rem 0.8rem rgba(92, 91, 91, 0.4);
 }
-.addresses__list span {
+.address__list span {
   display: inline-block;
   width: 10rem;
   font-weight: 800;
 }
-.addresses h3 {
+.address h3 {
   padding: 2rem;
   border-bottom: 1px solid #eeeeee;
 }
-.addresses a {
+.address a {
   text-decoration: none;
   color: #222222;
 }

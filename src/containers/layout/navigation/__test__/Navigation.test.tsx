@@ -1,8 +1,8 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import { Router } from "react-router-dom";
-import history from "../../../components/history";
-import { Navigation } from "../Navigation";
+import history from "../../../../components/history";
+import { Navigation } from "../navigationComponent";
 
 afterEach(cleanup);
 

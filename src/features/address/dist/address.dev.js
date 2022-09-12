@@ -27,13 +27,13 @@ var addressBook = [{
   county: "West minster"
 }];
 var initialState = {
-  addresses: addressBook
+  addresses: addressBook,
+  loaded: true
 };
 var addressSlice = (0, _toolkit.createSlice)({
   name: "address",
   initialState: initialState,
   reducers: {}
 });
-console.log(addressSlice);
 var _default = addressSlice.reducer;
 exports["default"] = _default;
