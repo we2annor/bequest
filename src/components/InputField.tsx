@@ -1,6 +1,6 @@
 import React from "react";
 
-interface IProps {
+interface InputFieldProps {
   className: string;
   label: string;
   id: string;
@@ -13,7 +13,7 @@ interface IProps {
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   ref: string;
 }
-const InputField: React.FC<IProps> = ({
+const InputField: React.FC<InputFieldProps> = ({
   className,
   onChange,
   label,

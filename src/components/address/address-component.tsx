@@ -10,6 +10,7 @@ interface IProps {
 
 const Address: React.FC<IProps> = ({ address }) => {
   const { houseFlatNumber, streetName, city, postCode, county } = address;
+
   return (
     <div className='address'>
       {houseFlatNumber ? <p>Flat Number : {houseFlatNumber}</p> : null}

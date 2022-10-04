@@ -13,7 +13,7 @@ type IProp = {
   addresses: IAddress[];
 };
 
-const AddressList: React.FC<IProp> = ({ addresses }) => {
+const DirectoryComponent: React.FC<IProp> = ({ addresses }) => {
   const currentAddresses = addresses ? (
     addresses.map((address, index) => <Address key={index} address={address} />)
   ) : (
@@ -22,10 +22,10 @@ const AddressList: React.FC<IProp> = ({ addresses }) => {
 
   return (
     <div className='address-list' data-test-id='addrress-list'>
-      <h3>Address Book</h3>
+      <h3>Directory</h3>
       {currentAddresses}
     </div>
   );
 };
 
-export default AddressList;
+export default DirectoryComponent;
